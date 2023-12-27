@@ -1,0 +1,42 @@
+/var/conda/lib/python3.10/site-packages/torch/nn/modules/loss.py:536: UserWarning: Using a target size (torch.Size([1, 4, 1020, 32000])) that is different to the input size (torch.Size([4, 1020, 32000])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.mse_loss(input, target, reduction=self.reduction)
+> /tmp/ipykernel_220651/775524108.py(10)compute_metrics()
+      8         import pdb; pdb.set_trace()
+      9         #print(labels.shape)
+---> 10         medusa_logits = logits[0,:, : ].contiguous()
+     11
+     12         medusa_labels = labels[...,  1:].contiguous()
+<transformers.trainer_utils.EvalPrediction object at 0x7ff0fc20bbe0>
+*** AttributeError: 'EvalPrediction' object has no attribute 'labels'
+*** AttributeError: 'EvalPrediction' object has no attribute 'logits'
+*** AttributeError: 'EvalPrediction' object has no attribute 'logit'
+array([], shape=(0, 1, 4, 1020, 32000), dtype=float32)
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+KeyboardInterrupt
+Exception ignored in: <function _xla_gc_callback at 0x7ff30b3525f0>
+Traceback (most recent call last):
+  File "/var/conda/lib/python3.10/site-packages/jax/_src/lib/__init__.py", line 98, in _xla_gc_callback
+    def _xla_gc_callback(*args):
+KeyboardInterrupt:
+KeyboardInterrupt
+> /tmp/ipykernel_220651/775524108.py(10)compute_metrics()
+      8         import pdb; pdb.set_trace()
+      9         #print(labels.shape)
+---> 10         medusa_logits = logits[0,:, : ].contiguous()
+     11
+     12         medusa_labels = labels[...,  1:].contiguous()
+array([], shape=(0, 1, 4, 1020, 32000), dtype=float32)
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+KeyboardInterrupt
+/var/conda/lib/python3.10/site-packages/transformers/trainer_pt_utils.py:411: FutureWarning: DistributedTensorGatherer is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+> /tmp/ipykernel_220651/775524108.py(10)compute_metrics()
+      8         import pdb; pdb.set_trace()
+      9         #print(labels.shape)
+---> 10         medusa_logits = logits[0,:, : ].contiguous()
+     11
+     12         medusa_labels = labels[...,  1:].contiguous()
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user

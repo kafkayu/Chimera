@@ -1,0 +1,127 @@
+> /tmp/ipykernel_90547/2840669535.py(44)compute_loss()
+     42             #log[f"medusa{i}_loss_7"] = loss_i_7.item()
+     43         import pdb; pdb.set_trace()
+---> 44         self.log(log)
+     45
+     46         return (loss, logits) #if return_outputs else loss
+> /tmp/ipykernel_90547/2840669535.py(44)compute_loss()
+     42             #log[f"medusa{i}_loss_7"] = loss_i_7.item()
+     43         import pdb; pdb.set_trace()
+---> 44         self.log(log)
+     45
+     46         return (loss, logits) #if return_outputs else loss
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Token indices sequence length is longer than the specified maximum sequence length for this model (1267 > 1024). Running this sequence through the model will result in indexing errors
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+KeyboardInterrupt
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+KeyboardInterrupt
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+KeyboardInterrupt
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+(13, 1024)
+(0, 2, 1023, 32000)
+(13, 1024)
+> /tmp/ipykernel_90547/3003740257.py(9)compute_metrics()
+      7         print(logits.shape)
+      8         import pdb; pdb.set_trace()
+----> 9         print(labels.shape)
+     10         medusa_logits = logits[..., : -1].contiguous()
+     11
+array([[ -100,  -100,  -100, ...,  -100,  -100,  -100],
+       [ -100,  -100,  -100, ...,  -100,  -100,  -100],
+       [ -100,  -100,  -100, ...,   893, 29874,   313],
+       ...,
+       [ -100,  -100,  -100, ..., 29879,  1950,   393],
+       [ -100,  -100,  -100, ...,  -100,  -100,  -100],
+       [ -100,  -100,  -100, ...,   890,    13,    13]])
+(13, 1024)
+(0, 2, 1023, 32000)
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+(0, 2, 1023, 32000)
+KeyboardInterrupt
+> /tmp/ipykernel_90547/583024137.py(10)compute_metrics()
+      8         import pdb; pdb.set_trace()
+      9         #print(labels.shape)
+---> 10         medusa_logits = logits[0,:, : -1].contiguous()
+     11
+     12         medusa_labels = labels[...,  1:].contiguous()
+array([], shape=(0, 2, 1023, 32000), dtype=float32)
+KeyboardInterrupt
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+> /tmp/ipykernel_90547/583024137.py(10)compute_metrics()
+      8         import pdb; pdb.set_trace()
+      9         #print(labels.shape)
+---> 10         medusa_logits = logits[0,:, : -1].contiguous()
+     11
+     12         medusa_labels = labels[...,  1:].contiguous()
+array([], shape=(0, 2, 1023, 32000), dtype=float32)
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+> /tmp/ipykernel_90547/1587155463.py(89)compute_loss()
+     87         self.log(log)
+     88         import pdb; pdb.set_trace()
+---> 89         return (loss,  logits) #if return_outputs else loss#lossloss,
+     90
+     91
+torch.Size([1, 2, 1023, 32000])
+tensor([[[[-147.5000,  -67.9375,   81.2500,  ..., -100.7500, -136.5000,
+           -100.5000],
+          [ -82.0000,  -19.7188,   18.9375,  ...,  -67.7500,  -61.2812,
+            -45.6250],
+          [ -90.4375,  -29.2812,   60.9688,  ...,  -85.1250,  -82.2500,
+            -60.2188],
+          ...,
+          [-137.1250,  -79.3125,   62.1562,  ..., -131.1250, -130.1250,
+           -105.2500],
+          [-136.1250,  -80.1875,   60.6562,  ..., -129.3750, -129.0000,
+           -104.0625],
+          [-142.1250,  -83.1875,   62.4375,  ..., -133.3750, -135.6250,
+           -108.1250]],
+         [[-147.5000,  -67.9375,   81.2500,  ..., -100.7500, -136.5000,
+           -100.5000],
+          [ -82.0000,  -19.7188,   18.9375,  ...,  -67.7500,  -61.2812,
+            -45.6250],
+          [ -90.4375,  -29.2812,   60.9688,  ...,  -85.1250,  -82.2500,
+            -60.2188],
+          ...,
+          [ -93.4375,  -52.4375,   47.5000,  ..., -108.5000,  -90.6875,
+            -57.8438],
+          [ -94.7500,  -53.9375,   48.7500,  ..., -109.8125,  -91.7500,
+            -57.3750],
+          [ -94.9375,  -55.0312,   47.2500,  ..., -108.8750,  -91.9375,

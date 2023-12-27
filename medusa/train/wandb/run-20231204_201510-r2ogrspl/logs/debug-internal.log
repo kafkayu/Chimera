@@ -1,0 +1,1531 @@
+2023-12-04 20:15:10,760 INFO    StreamThr :17975 [internal.py:wandb_internal():86] W&B internal server running at pid: 17975, started at: 2023-12-04 20:15:10.759799
+2023-12-04 20:15:10,763 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status
+2023-12-04 20:15:10,779 INFO    WriterThread:17975 [datastore.py:open_for_write():85] open: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/run-r2ogrspl.wandb
+2023-12-04 20:15:10,779 DEBUG   SenderThread:17975 [sender.py:send():379] send: header
+2023-12-04 20:15:10,795 DEBUG   SenderThread:17975 [sender.py:send():379] send: run
+2023-12-04 20:15:11,742 INFO    SenderThread:17975 [dir_watcher.py:__init__():211] watching files in: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files
+2023-12-04 20:15:11,742 INFO    SenderThread:17975 [sender.py:_start_run_threads():1122] run started: r2ogrspl with start time 1701692110.760778
+2023-12-04 20:15:11,742 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:11,743 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:11,758 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: check_version
+2023-12-04 20:15:11,758 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: check_version
+2023-12-04 20:15:12,116 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: run_start
+2023-12-04 20:15:12,150 DEBUG   HandlerThread:17975 [system_info.py:__init__():31] System info init
+2023-12-04 20:15:12,151 DEBUG   HandlerThread:17975 [system_info.py:__init__():46] System info init done
+2023-12-04 20:15:12,151 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:15:12,151 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:15:12,152 INFO    HandlerThread:17975 [system_monitor.py:probe():201] Collecting system info
+2023-12-04 20:15:12,152 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:15:12,154 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:15:12,155 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:15:12,157 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:15:12,158 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:15:12,259 DEBUG   HandlerThread:17975 [system_info.py:probe():195] Probing system
+2023-12-04 20:15:12,263 DEBUG   HandlerThread:17975 [system_info.py:_probe_git():180] Probing git
+2023-12-04 20:15:12,271 DEBUG   HandlerThread:17975 [system_info.py:_probe_git():188] Probing git done
+2023-12-04 20:15:12,272 DEBUG   HandlerThread:17975 [system_info.py:probe():240] Probing system done
+2023-12-04 20:15:12,272 DEBUG   HandlerThread:17975 [system_monitor.py:probe():210] {'os': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.35', 'python': '3.10.12', 'heartbeatAt': '2023-12-04T12:15:12.259849', 'startedAt': '2023-12-04T12:15:10.748001', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'git': {'remote': 'https://github.com/FasterDecoding/Medusa.git', 'commit': 'e76b4800e66ee824e75e317eeb154120c7499509'}, 'email': None, 'root': '/home/liyunhao/nlptest/medusa/Medusa', 'host': 'A800-1_liyunhao', 'username': 'liyunhao', 'executable': '/var/conda/bin/python3.10', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 1141.957234375, 'min': 800.0, 'max': 3400.0}, 'cpu_freq_per_core': [{'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1100.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2100.0, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 1500.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3325.645, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2100.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1700.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3314.588, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3330.203, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1100.0, 'min': 800.0, 'max': 3400.0}, {'current': 1100.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1200.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2100.0, 'min': 800.0, 'max': 3400.0}, {'current': 2200.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1400.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1600.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 1400.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2100.0, 'min': 800.0, 'max': 3400.0}], 'disk': {'total': 7450.046226501465, 'used': 6430.614791870117}, 'gpu': 'NVIDIA A800 80GB PCIe', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}, {'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}, {'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}, {'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}], 'memory': {'total': 755.2678985595703}}
+2023-12-04 20:15:12,272 INFO    HandlerThread:17975 [system_monitor.py:probe():211] Finished collecting system info
+2023-12-04 20:15:12,272 INFO    HandlerThread:17975 [system_monitor.py:probe():214] Publishing system info
+2023-12-04 20:15:12,272 DEBUG   HandlerThread:17975 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-12-04 20:15:12,273 DEBUG   HandlerThread:17975 [system_info.py:_save_pip():67] Saving pip packages done
+2023-12-04 20:15:12,273 DEBUG   HandlerThread:17975 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-12-04 20:15:12,744 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/conda-environment.yaml
+2023-12-04 20:15:12,744 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/requirements.txt
+2023-12-04 20:15:12,744 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:19,570 DEBUG   HandlerThread:17975 [system_info.py:_save_conda():86] Saving conda packages done
+2023-12-04 20:15:19,573 INFO    HandlerThread:17975 [system_monitor.py:probe():216] Finished publishing system info
+2023-12-04 20:15:19,582 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:19,583 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: keepalive
+2023-12-04 20:15:19,584 DEBUG   SenderThread:17975 [sender.py:send():379] send: files
+2023-12-04 20:15:19,584 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-metadata.json with policy now
+2023-12-04 20:15:19,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:15:19,616 DEBUG   SenderThread:17975 [sender.py:send():379] send: telemetry
+2023-12-04 20:15:19,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:15:19,679 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:19,745 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/conda-environment.yaml
+2023-12-04 20:15:19,746 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-metadata.json
+2023-12-04 20:15:19,768 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:19,914 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,011 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,089 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,188 DEBUG   SenderThread:17975 [sender.py:send():379] send: config
+2023-12-04 20:15:20,191 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,191 DEBUG   SenderThread:17975 [sender.py:send():379] send: telemetry
+2023-12-04 20:15:20,192 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,192 WARNING SenderThread:17975 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-04 20:15:20,192 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,192 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,192 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,192 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,193 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,193 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:20,193 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,193 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,196 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,199 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,200 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,201 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,201 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,202 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,202 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,203 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,203 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,204 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,204 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,205 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,205 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,206 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,206 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,207 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,207 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,374 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,376 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,377 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,377 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,520 INFO    wandb-upload_0:17975 [upload_job.py:push():131] Uploaded file /tmp/tmpcbljjog5wandb/1vbdtepr-wandb-metadata.json
+2023-12-04 20:15:20,551 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,554 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,554 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,555 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,656 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,658 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,659 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,659 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,746 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:20,804 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,807 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,807 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,808 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,885 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,887 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,888 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,888 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:20,987 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:20,990 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:20,990 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:20,991 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,068 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:21,070 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:21,070 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:21,071 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,168 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:21,170 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:21,171 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:21,172 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:21,172 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,339 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:21,341 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:21,341 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:21,342 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,519 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:21,521 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:21,522 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:21,523 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,654 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:21,656 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:21,657 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:21,658 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,747 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:21,748 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:15:21,806 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:21,809 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:21,809 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:21,810 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,906 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:21,908 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:21,909 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:21,910 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:21,999 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,001 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,002 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,002 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,093 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,095 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,096 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,096 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,247 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,250 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,250 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,254 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,428 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,430 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,430 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,431 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,557 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,559 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,560 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,561 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,708 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,711 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,711 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,712 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,747 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:22,816 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,819 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,819 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,820 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,900 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,903 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,903 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,904 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:22,994 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:22,997 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:22,998 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:22,999 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:23,169 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:23,172 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:23,172 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:23,173 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:23,324 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:23,327 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:23,327 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:23,328 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:23,457 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:23,460 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:23,460 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:23,461 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:23,608 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:23,610 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:23,611 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:23,612 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:23,702 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:23,704 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:23,705 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:23,706 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:23,748 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:23,749 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:15:23,799 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:23,802 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:23,802 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:23,803 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:23,893 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:23,896 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:23,896 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:23,897 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,057 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,060 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,061 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,062 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,235 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,238 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,239 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,239 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,343 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,346 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,346 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,350 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,468 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,471 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,472 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,473 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,547 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,550 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,550 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,551 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,627 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,630 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,630 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,631 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,730 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,733 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,734 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,734 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:24,749 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:24,878 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:24,881 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:24,881 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:24,882 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,045 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,048 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,049 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,049 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,158 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,161 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,162 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,163 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,299 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,302 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,303 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,303 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,398 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,401 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,401 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,402 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,507 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,510 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,511 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,511 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,661 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,664 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,664 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,665 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,749 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:25,839 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,842 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,842 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,843 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:25,962 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:25,964 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:25,965 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:25,966 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,106 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,109 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,109 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,110 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,199 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,201 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,202 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,202 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:26,203 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,272 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,275 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,275 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,276 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,346 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,349 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,349 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,353 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,435 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,438 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,439 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,440 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,580 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,583 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,584 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,585 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,742 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,745 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,745 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,746 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,750 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:26,883 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,885 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,886 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,887 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:26,968 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:26,971 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:26,971 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:26,972 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,104 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,107 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,107 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,108 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,200 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,202 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,203 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,204 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,288 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,291 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,291 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,292 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,381 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,384 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,384 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,385 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,528 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,531 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,532 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,532 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,704 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,707 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,707 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,708 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,750 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:27,818 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,821 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,822 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,822 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:27,964 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:27,967 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:27,967 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:27,968 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,060 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,062 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,063 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,064 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,146 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,150 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,151 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,152 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,245 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,248 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,248 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,249 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,394 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,397 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,397 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,401 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,562 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,564 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,565 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,566 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,706 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,708 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,709 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,709 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,751 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:28,867 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,870 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,870 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,871 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:28,957 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:28,958 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:28,958 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:28,958 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,036 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,037 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,038 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,038 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,114 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,115 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,116 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,116 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,219 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,221 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,221 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,222 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,384 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,386 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,386 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,387 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,545 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,547 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,547 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,548 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,699 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,701 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,701 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,702 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,751 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:29,784 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,787 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,787 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,788 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,886 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,888 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,889 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,890 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:29,983 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:29,985 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:29,986 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:29,986 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,062 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,064 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,065 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,066 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,157 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,159 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,159 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,160 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,361 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,363 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,364 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,365 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,490 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,492 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,493 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,496 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,635 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,637 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,638 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,638 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,725 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,727 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,727 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,728 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,752 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:30,826 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,828 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,829 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,829 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:30,986 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:30,988 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:30,989 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:30,990 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,139 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,142 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,142 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,143 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,286 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,288 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,288 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,289 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:31,290 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,372 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,375 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,376 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,376 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,515 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,518 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,519 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,519 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,618 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,620 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,622 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,695 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,698 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,698 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,699 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,753 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:31,795 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,798 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,798 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,799 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:31,944 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:31,946 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:31,947 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:31,948 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,115 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,118 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,119 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,119 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,254 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,257 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,257 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,258 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,365 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,367 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,368 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,368 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,471 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,473 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,473 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,474 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,552 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,554 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,555 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,558 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,683 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,685 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,686 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,687 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,753 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:32,856 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,859 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,860 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,861 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:32,975 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:32,977 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:32,977 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:32,978 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,129 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,131 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,132 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,133 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,232 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,234 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,234 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,235 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,314 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,316 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,317 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,317 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,406 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,409 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,409 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,410 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,497 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,499 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,500 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,500 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,660 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,662 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,663 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,664 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,754 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:33,825 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,828 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,828 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,829 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:33,981 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:33,984 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:33,984 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:33,985 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,096 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,098 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,099 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,100 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,221 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,226 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,227 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,228 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,300 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,302 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,302 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,303 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,392 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,394 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,394 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,395 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,484 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,487 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,487 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,488 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,612 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:15:34,613 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:15:34,646 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,754 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:34,809 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,924 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:34,972 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,972 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,977 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,978 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,978 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,979 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:34,979 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:34,980 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:34,981 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,048 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,050 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,051 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,052 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,126 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,129 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,129 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,130 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,221 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,224 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,224 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,225 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,309 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,311 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,312 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,312 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,469 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,471 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,472 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,473 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,623 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,625 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,626 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,627 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,742 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,744 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,745 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,746 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,755 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:35,861 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,863 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,864 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,865 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:35,951 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:35,954 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:35,954 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:35,955 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:36,042 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:36,044 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:36,044 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:36,045 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:36,137 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:36,140 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:36,140 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:36,141 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:36,278 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:36,281 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:36,281 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:36,282 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:36,285 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:15:36,286 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:15:36,286 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:36,286 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:15:36,287 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:36,287 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:36,287 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:36,288 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:36,288 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:36,288 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:36,289 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:15:36,289 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:15:36,289 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:15:36,290 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:15:36,291 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:15:36,292 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:36,390 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:15:36,391 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:15:36,391 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:15:36,392 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:36,756 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:41,299 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:42,789 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/config.yaml
+2023-12-04 20:15:46,817 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:47,211 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:15:47,211 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:15:47,211 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:15:47,212 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:15:47,214 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:15:47,215 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:15:47,217 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:15:47,217 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:15:47,218 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:15:47,482 DEBUG   SenderThread:17975 [sender.py:send():379] send: config
+2023-12-04 20:15:47,484 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:47,485 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:47,485 WARNING SenderThread:17975 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-04 20:15:47,661 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:15:47,664 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:15:47,664 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:15:47,665 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:15:47,668 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:15:47,792 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:15:48,971 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:15:48,971 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:15:48,971 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:15:48,971 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:15:48,971 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:15:48,971 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:15:48,974 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:15:48,974 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:15:49,100 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:15:49,100 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:15:49,101 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:15:49,102 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:15:49,613 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:15:49,615 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:15:49,793 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:15:51,974 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:15:56,975 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:01,976 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:04,613 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:16:04,615 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:16:06,988 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:11,994 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:12,806 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/config.yaml
+2023-12-04 20:16:17,465 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:19,613 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:16:19,614 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:16:22,914 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:27,915 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:32,916 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:34,614 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:16:34,615 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:16:37,984 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:41,600 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:16:41,600 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:16:41,601 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:16:41,601 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:16:41,602 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:16:41,603 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:16:41,603 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:16:41,605 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:16:41,606 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:16:42,010 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:16:42,013 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:16:42,014 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:16:42,017 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:16:42,120 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:16:42,120 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:16:42,120 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:16:42,121 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:16:42,121 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:16:42,121 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:16:42,124 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:16:42,125 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:16:42,218 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:16:42,219 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:16:42,219 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:16:42,221 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:16:42,823 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:16:43,224 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:47,814 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:16:47,814 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:16:47,814 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:16:47,814 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:16:47,817 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:16:47,817 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:16:47,817 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:16:47,820 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:16:47,820 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:16:47,847 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:16:47,848 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:16:47,848 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:16:47,848 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:16:47,849 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:16:47,849 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:16:47,851 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:16:47,851 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:16:47,912 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:16:47,912 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:16:47,913 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:16:47,913 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:16:48,917 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:49,613 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:16:49,615 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:16:49,827 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:16:54,912 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:16:55,414 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:16:55,414 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:16:55,415 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:16:55,415 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:16:55,415 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:16:55,416 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:16:55,416 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:16:55,417 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:16:55,417 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:16:55,417 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:16:55,417 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:16:55,417 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:16:55,420 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:16:55,421 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:16:55,421 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:17:00,424 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:04,614 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:17:04,616 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:17:05,877 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:09,267 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:17:09,267 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:17:09,267 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:17:09,268 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:17:09,268 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:17:09,268 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:17:09,269 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:17:09,269 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:17:09,272 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:17:09,311 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:17:09,311 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:17:09,311 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:17:09,312 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:17:09,312 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:17:09,312 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:17:09,314 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:17:09,314 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:17:09,415 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:17:09,415 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:17:09,416 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:17:09,417 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:17:09,511 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:17:09,512 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:17:09,512 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:17:09,512 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:17:09,513 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:17:09,513 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:17:09,514 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:17:09,516 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:17:09,516 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:17:09,915 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:17:09,915 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:17:09,916 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:17:09,916 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:17:09,916 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:17:09,916 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:17:09,917 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:17:09,918 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:17:09,994 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:17:09,995 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:17:09,995 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:17:09,995 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:17:09,996 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:17:09,996 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:17:09,997 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:17:09,997 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:17:10,000 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:17:10,000 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:17:10,002 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:17:10,003 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:17:10,003 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:17:11,000 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:11,562 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:17:11,562 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:17:11,562 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:17:11,563 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:17:11,563 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:17:11,563 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:17:11,565 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:17:11,566 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:17:11,625 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:17:11,626 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:17:11,626 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:17:11,628 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:17:11,840 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:17:12,088 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:17:12,088 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:17:12,088 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:17:12,089 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:17:12,089 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:17:12,090 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:17:12,090 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:17:12,090 WARNING HandlerThread:17975 [interfaces.py:finish():207] Failed to finish cpu monitoring: cannot join thread before it is started
+2023-12-04 20:17:12,090 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:17:12,090 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:17:12,090 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:17:12,090 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:17:12,091 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:17:12,599 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:17:12,599 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:17:12,599 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:17:12,599 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:17:12,601 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:17:12,602 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:17:12,602 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:17:12,605 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:17:12,605 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:17:13,361 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:17:13,361 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:17:13,362 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:17:13,362 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:17:13,362 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:17:13,362 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:17:13,363 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:17:13,363 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:17:13,444 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:17:13,445 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:17:13,445 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:17:13,446 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:17:13,446 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:17:13,446 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:17:13,446 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:17:13,447 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:17:13,447 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:17:13,448 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:17:13,450 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:17:13,450 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:17:13,610 DEBUG   SenderThread:17975 [sender.py:send():379] send: config
+2023-12-04 20:17:13,612 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:17:13,613 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:17:13,613 WARNING SenderThread:17975 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-04 20:17:13,820 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:17:13,822 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:17:13,823 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:17:13,824 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:17:13,841 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:17:13,842 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:17:13,928 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:17:13,928 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:17:13,928 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:17:13,928 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:17:13,929 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:17:13,929 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:17:13,930 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:17:13,930 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:17:13,995 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:17:13,996 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:17:13,996 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:17:13,997 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:17:16,006 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:16,843 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/config.yaml
+2023-12-04 20:17:19,614 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:17:19,616 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:17:21,965 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:26,966 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:31,967 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:34,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:17:34,616 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:17:36,977 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:41,978 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:46,979 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:49,615 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:17:49,616 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:17:52,974 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:17:57,975 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:02,976 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:04,614 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:18:04,615 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:18:08,952 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:13,954 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:18,954 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:19,615 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:18:19,616 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:18:23,977 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:28,979 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:33,980 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:34,604 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:18:34,604 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:18:34,604 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:18:34,604 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:18:34,605 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:18:34,606 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:18:34,606 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:18:34,608 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:18:34,609 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:18:34,612 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:18:34,612 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:18:34,612 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:18:34,612 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:18:34,613 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:18:34,613 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:18:34,615 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:18:34,615 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:18:34,739 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:18:34,740 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:18:34,740 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:18:34,741 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:18:34,743 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:18:34,746 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:18:34,791 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:18:34,792 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:18:34,792 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:18:34,792 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:18:34,793 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:18:34,794 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:18:34,794 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:18:34,795 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:18:34,797 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:18:35,188 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:18:35,188 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:18:35,188 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:18:35,190 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:18:35,190 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:18:35,190 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:18:35,190 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:18:35,190 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:18:35,280 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:18:35,281 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:18:35,281 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:18:35,281 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:18:35,281 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:18:35,282 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:18:35,283 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:18:35,284 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:18:35,285 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:18:35,285 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:18:35,291 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:18:35,291 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:18:35,292 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:18:35,886 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:18:36,772 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:18:36,772 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:18:36,773 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:18:36,774 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:18:36,774 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:18:36,774 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:18:36,774 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:18:36,774 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:18:36,828 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:18:36,829 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:18:36,829 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:18:36,829 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:18:36,829 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:18:36,829 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:18:36,830 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:18:36,831 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:18:36,831 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:18:36,831 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:18:36,831 WARNING HandlerThread:17975 [interfaces.py:finish():207] Failed to finish cpu monitoring: cannot join thread before it is started
+2023-12-04 20:18:36,832 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:18:36,832 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:18:36,832 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:18:36,832 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:18:36,833 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:18:36,836 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:18:37,173 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:18:37,173 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:18:37,173 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:18:37,174 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:18:37,176 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:18:37,177 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:18:37,177 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:18:37,178 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:18:37,180 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:18:37,887 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:18:37,963 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:18:37,963 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:18:37,963 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:18:37,964 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:18:37,964 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:18:37,964 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:18:37,965 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:18:37,965 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:18:38,024 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:18:38,025 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:18:38,025 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:18:38,025 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:18:38,026 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:18:38,026 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:18:38,026 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:18:38,028 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:18:38,028 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:18:38,031 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:18:38,033 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:18:38,033 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:18:38,034 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:18:38,204 DEBUG   SenderThread:17975 [sender.py:send():379] send: config
+2023-12-04 20:18:38,207 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:18:38,207 DEBUG   SenderThread:17975 [sender.py:send():379] send: metric
+2023-12-04 20:18:38,207 WARNING SenderThread:17975 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-04 20:18:38,407 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:18:38,410 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:18:38,411 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:18:38,412 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:18:38,514 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:18:38,515 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:18:38,515 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:18:38,515 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:18:38,516 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:18:38,516 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:18:38,518 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:18:38,519 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:18:38,600 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:18:38,600 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:18:38,601 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:18:38,602 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:18:38,887 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:18:39,605 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:44,607 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:49,613 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:18:49,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:18:50,047 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:18:50,894 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/config.yaml
+2023-12-04 20:18:55,403 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:00,403 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:04,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:19:04,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:19:05,968 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:10,969 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:15,970 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:19,615 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:19:19,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:19:21,898 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:26,899 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:31,900 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:34,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:19:34,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:19:36,909 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:41,910 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:46,911 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:49,615 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:19:49,616 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:19:52,904 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:19:57,905 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:02,906 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:04,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:20:04,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:20:08,887 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:13,888 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:18,889 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:19,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:20:19,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:20:23,978 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:28,979 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:33,980 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:34,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:20:34,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:20:39,958 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:44,959 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:49,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:20:49,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:20:50,903 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:20:55,904 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:00,905 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:04,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:21:04,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:21:05,921 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:10,922 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:15,923 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:19,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:21:19,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:21:21,912 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:26,913 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:31,914 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:34,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:21:34,618 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:21:37,909 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:42,910 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:47,911 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:49,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:21:49,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:21:52,944 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:21:57,945 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:02,946 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:04,616 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:22:04,618 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:22:08,926 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:13,927 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:18,928 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:19,617 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:22:19,618 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:22:24,883 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:29,884 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:34,617 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:22:34,618 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:22:34,976 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:39,977 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:44,978 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:49,617 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:22:49,617 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:22:50,927 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:22:55,929 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:00,930 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:04,617 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:23:04,619 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:23:06,926 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:11,927 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:16,928 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:19,617 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:23:19,618 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:23:21,957 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:26,958 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:31,959 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:34,617 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:23:34,619 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:23:37,911 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:42,912 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:47,913 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:49,618 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:23:49,619 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:23:52,939 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:23:57,940 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:02,941 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:04,618 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:24:04,619 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:24:08,941 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:13,942 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:18,943 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:19,618 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:24:19,619 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:24:23,967 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:24,076 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: resume
+2023-12-04 20:24:24,076 INFO    HandlerThread:17975 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-04 20:24:24,076 INFO    HandlerThread:17975 [system_monitor.py:start():181] Starting system monitor
+2023-12-04 20:24:24,077 INFO    SystemMonitor:17975 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-04 20:24:24,078 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started cpu monitoring
+2023-12-04 20:24:24,078 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started disk monitoring
+2023-12-04 20:24:24,079 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started gpu monitoring
+2023-12-04 20:24:24,082 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started memory monitoring
+2023-12-04 20:24:24,083 INFO    SystemMonitor:17975 [interfaces.py:start():190] Started network monitoring
+2023-12-04 20:24:24,270 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-04 20:24:24,273 DEBUG   SenderThread:17975 [sender.py:send():379] send: history
+2023-12-04 20:24:24,273 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: summary_record
+2023-12-04 20:24:24,277 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:24:24,582 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: pause
+2023-12-04 20:24:24,583 INFO    HandlerThread:17975 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-04 20:24:24,583 INFO    HandlerThread:17975 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-04 20:24:24,583 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-04 20:24:24,584 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-04 20:24:24,584 DEBUG   SystemMonitor:17975 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-04 20:24:24,587 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-04 20:24:24,587 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined disk monitor
+2023-12-04 20:24:24,657 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-04 20:24:24,658 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined memory monitor
+2023-12-04 20:24:24,658 INFO    HandlerThread:17975 [interfaces.py:finish():202] Joined network monitor
+2023-12-04 20:24:24,660 DEBUG   SenderThread:17975 [sender.py:send():379] send: stats
+2023-12-04 20:24:25,074 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:24:29,663 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:34,618 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:24:34,620 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:24:34,922 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:39,924 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:44,925 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:49,618 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:24:49,619 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:24:50,916 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:24:55,917 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:00,918 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:04,618 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:25:04,620 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:25:06,897 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:11,898 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:16,899 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:19,619 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:25:19,620 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:25:21,936 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:26,937 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:31,938 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:34,619 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:25:34,620 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:25:37,896 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:42,897 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:47,898 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:49,619 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:25:49,620 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:25:53,887 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:25:58,888 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:03,889 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:04,619 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:26:04,620 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:26:08,961 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:13,962 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:18,963 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:19,619 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:26:19,620 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:26:24,924 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:29,925 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:34,619 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:26:34,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:26:35,902 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:40,903 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:45,904 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:49,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:26:49,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:26:51,895 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:26:56,896 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:01,897 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:04,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:27:04,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:27:06,967 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:11,968 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:16,969 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:19,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:27:19,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:27:22,917 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:27,918 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:32,919 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:34,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:27:34,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:27:37,931 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:42,932 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:47,933 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:49,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:27:49,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:27:53,891 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:27:58,892 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:03,894 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:04,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:28:04,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:28:08,946 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:13,948 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:18,949 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:19,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:28:19,622 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:28:23,953 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:28,954 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:33,955 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:34,620 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:28:34,621 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:28:39,911 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:44,912 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:49,621 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:28:49,622 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:28:49,942 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:54,943 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:28:59,944 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:04,621 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:29:04,622 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:29:04,954 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:09,955 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:14,956 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:19,621 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:29:19,622 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:29:20,921 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:25,922 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:30,922 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:34,621 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:29:34,622 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:29:35,958 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:40,959 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:45,961 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:49,621 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:29:49,623 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:29:51,907 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:29:56,908 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:01,909 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:04,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:30:04,622 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:30:06,952 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:11,953 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:16,954 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:19,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:30:19,623 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:30:22,885 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:27,886 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:32,887 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:34,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:30:34,623 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:30:37,984 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:42,985 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:47,986 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:49,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:30:49,623 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:30:52,988 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:30:57,989 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:02,990 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:04,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:31:04,623 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:31:08,906 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:13,907 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:18,908 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:19,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:31:19,623 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:31:23,971 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:28,972 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:33,973 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:34,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:31:34,624 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:31:39,951 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:44,952 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:49,622 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:31:49,623 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:31:49,974 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:54,975 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:31:59,976 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:04,623 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:32:04,624 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:32:05,927 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:10,928 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:15,929 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:19,623 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:32:19,624 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:32:20,935 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:25,936 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:30,937 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:34,623 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:32:34,624 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:32:35,948 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:40,948 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:45,949 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:49,623 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:32:49,624 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:32:51,898 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:32:56,899 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:01,900 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:04,623 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:33:04,624 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:33:06,902 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:11,903 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:16,903 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:19,623 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:33:19,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:33:21,988 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:26,988 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:31,989 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:34,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:33:34,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:33:37,936 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:42,938 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:47,939 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:49,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:33:49,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:33:53,893 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:33:58,894 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:03,895 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:04,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:34:04,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:34:08,968 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:13,969 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:18,970 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:19,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:34:19,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:34:24,928 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:29,929 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:34,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:34:34,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:34:35,893 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:40,894 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:45,895 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:49,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:34:49,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:34:50,926 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:34:55,927 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:00,929 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:04,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:35:04,625 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:35:06,917 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:11,919 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:16,920 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:19,624 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:35:19,626 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:35:22,634 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:27,635 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:32,637 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:34,625 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:35:34,626 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:35:38,003 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:43,004 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:48,005 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:49,625 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:35:49,626 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:35:53,898 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:35:58,899 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:03,900 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:04,625 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:36:04,626 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:36:08,905 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:13,906 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:18,907 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:19,625 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:36:19,626 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:36:24,889 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:29,891 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:34,625 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-04 20:36:34,626 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: stop_status
+2023-12-04 20:36:34,962 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:39,963 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:44,965 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:45,550 DEBUG   SenderThread:17975 [sender.py:send():379] send: exit
+2023-12-04 20:36:45,550 INFO    SenderThread:17975 [sender.py:send_exit():584] handling exit code: 0
+2023-12-04 20:36:45,551 INFO    SenderThread:17975 [sender.py:send_exit():586] handling runtime: 34
+2023-12-04 20:36:45,555 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:36:45,556 INFO    SenderThread:17975 [sender.py:send_exit():592] send defer
+2023-12-04 20:36:45,556 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,556 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 0
+2023-12-04 20:36:45,557 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,557 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 0
+2023-12-04 20:36:45,557 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 1
+2023-12-04 20:36:45,557 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,558 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 1
+2023-12-04 20:36:45,558 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,558 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 1
+2023-12-04 20:36:45,558 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 2
+2023-12-04 20:36:45,558 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,558 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 2
+2023-12-04 20:36:45,559 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,559 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 2
+2023-12-04 20:36:45,559 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 3
+2023-12-04 20:36:45,559 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,559 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 3
+2023-12-04 20:36:45,560 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,560 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 3
+2023-12-04 20:36:45,560 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 4
+2023-12-04 20:36:45,560 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,560 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 4
+2023-12-04 20:36:45,560 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,560 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 4
+2023-12-04 20:36:45,561 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 5
+2023-12-04 20:36:45,561 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,561 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 5
+2023-12-04 20:36:45,562 DEBUG   SenderThread:17975 [sender.py:send():379] send: summary
+2023-12-04 20:36:45,563 INFO    SenderThread:17975 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-04 20:36:45,563 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,563 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 5
+2023-12-04 20:36:45,564 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 6
+2023-12-04 20:36:45,564 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,564 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 6
+2023-12-04 20:36:45,564 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,564 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 6
+2023-12-04 20:36:45,565 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 7
+2023-12-04 20:36:45,565 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: status_report
+2023-12-04 20:36:45,565 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:45,565 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 7
+2023-12-04 20:36:45,565 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:45,566 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 7
+2023-12-04 20:36:46,473 INFO    Thread-12 :17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:36:46,549 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: poll_exit
+2023-12-04 20:36:48,720 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 8
+2023-12-04 20:36:48,721 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: poll_exit
+2023-12-04 20:36:48,721 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:48,721 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 8
+2023-12-04 20:36:48,722 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:48,722 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 8
+2023-12-04 20:36:48,723 INFO    SenderThread:17975 [job_builder.py:build():280] Attempting to build job artifact
+2023-12-04 20:36:48,723 INFO    SenderThread:17975 [job_builder.py:build():296] run is notebook based run
+2023-12-04 20:36:48,727 INFO    SenderThread:17975 [job_builder.py:_get_source_type():389] is repo sourced job
+2023-12-04 20:36:48,727 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 9
+2023-12-04 20:36:48,727 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:48,728 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 9
+2023-12-04 20:36:48,728 DEBUG   SenderThread:17975 [sender.py:send_request():406] send_request: defer
+2023-12-04 20:36:48,728 INFO    SenderThread:17975 [sender.py:send_request_defer():608] handle sender defer: 9
+2023-12-04 20:36:48,728 INFO    SenderThread:17975 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-12-04 20:36:49,151 WARNING StreamThr :17975 [internal.py:is_dead():414] Internal process exiting, parent pid 17694 disappeared
+2023-12-04 20:36:49,153 ERROR   StreamThr :17975 [internal.py:wandb_internal():152] Internal process shutdown.
+2023-12-04 20:36:49,476 INFO    SenderThread:17975 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:36:49,476 INFO    SenderThread:17975 [dir_watcher.py:finish():389] scan: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files
+2023-12-04 20:36:49,477 INFO    SenderThread:17975 [dir_watcher.py:finish():403] scan save: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/config.yaml config.yaml
+2023-12-04 20:36:49,477 INFO    SenderThread:17975 [dir_watcher.py:finish():403] scan save: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json wandb-summary.json
+2023-12-04 20:36:49,478 INFO    SenderThread:17975 [dir_watcher.py:finish():403] scan save: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/requirements.txt requirements.txt
+2023-12-04 20:36:49,478 INFO    SenderThread:17975 [dir_watcher.py:finish():403] scan save: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/conda-environment.yaml conda-environment.yaml
+2023-12-04 20:36:49,488 INFO    SenderThread:17975 [dir_watcher.py:finish():403] scan save: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-metadata.json wandb-metadata.json
+2023-12-04 20:36:49,490 INFO    SenderThread:17975 [dir_watcher.py:finish():403] scan save: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log output.log
+2023-12-04 20:36:49,493 INFO    SenderThread:17975 [sender.py:transition_state():612] send defer: 10
+2023-12-04 20:36:49,493 INFO    SenderThread:17975 [sender.py:finish():1552] shutting down sender
+2023-12-04 20:36:49,494 INFO    SenderThread:17975 [file_pusher.py:finish():159] shutting down file pusher
+2023-12-04 20:36:49,494 INFO    SenderThread:17975 [file_pusher.py:join():164] waiting for file pusher
+2023-12-04 20:36:49,494 DEBUG   HandlerThread:17975 [handler.py:handle_request():144] handle_request: defer
+2023-12-04 20:36:49,500 INFO    HandlerThread:17975 [handler.py:handle_request_defer():170] handle defer: 10
+2023-12-04 20:36:49,503 INFO    HandlerThread:17975 [handler.py:finish():857] shutting down handler
+2023-12-04 20:36:49,504 INFO    WriterThread:17975 [datastore.py:close():294] close: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/run-r2ogrspl.wandb
+2023-12-04 20:36:50,326 INFO    wandb-upload_1:17975 [upload_job.py:push():131] Uploaded file /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/wandb-summary.json
+2023-12-04 20:36:50,557 INFO    wandb-upload_3:17975 [upload_job.py:push():131] Uploaded file /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/conda-environment.yaml
+2023-12-04 20:36:50,564 INFO    wandb-upload_4:17975 [upload_job.py:push():131] Uploaded file /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/output.log
+2023-12-04 20:36:50,623 INFO    wandb-upload_0:17975 [upload_job.py:push():131] Uploaded file /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/config.yaml
+2023-12-04 20:37:01,598 INFO    wandb-upload_2:17975 [upload_job.py:push():131] Uploaded file /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231204_201510-r2ogrspl/files/requirements.txt

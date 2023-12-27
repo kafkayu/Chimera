@@ -1,0 +1,1 @@
+{"train/medusa0_top1": 0.01907533034682274, "train/medusa0_top2": 0.03265438228845596, "train/medusa0_top3": 0.04591012001037598, "train/medusa0_top4": 0.06304558366537094, "train/medusa0_top5": 0.07888781279325485, "train/medusa0_loss": 25.360877990722656, "train/global_step": 0, "_timestamp": 1703578446.7509904, "_runtime": 427.1751832962036, "_step": 1}

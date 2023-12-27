@@ -1,0 +1,30 @@
+> /tmp/ipykernel_151675/2223075977.py(92)compute_loss()
+     90         import pdb; pdb.set_trace()
+     91        # return (loss,  logits) if return_outputs else loss+logits1[-1]#lossloss,
+---> 92         return loss+logits1[-1]
+     93
+     94
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+path ../../../../../model/TinyLlama-1.1B-Chat-v0.6
+path:  ../../../../../model/TinyLlama-1.1B-Chat-v0.6
+Some weights of LlamaForCausalLM were not initialized from the model checkpoint at ../../../../../model/TinyLlama-1.1B-Chat-v0.6 and are newly initialized: ['model.layers.4.self_attn.rotary_emb.inv_freq', 'model.layers.14.self_attn.rotary_emb.inv_freq', 'model.layers.9.self_attn.rotary_emb.inv_freq', 'model.layers.20.self_attn.rotary_emb.inv_freq', 'model.layers.0.self_attn.rotary_emb.inv_freq', 'model.layers.12.self_attn.rotary_emb.inv_freq', 'model.layers.18.self_attn.rotary_emb.inv_freq', 'model.layers.1.self_attn.rotary_emb.inv_freq', 'model.layers.7.self_attn.rotary_emb.inv_freq', 'model.layers.8.self_attn.rotary_emb.inv_freq', 'model.layers.3.self_attn.rotary_emb.inv_freq', 'model.layers.2.self_attn.rotary_emb.inv_freq', 'model.layers.6.self_attn.rotary_emb.inv_freq', 'model.layers.15.self_attn.rotary_emb.inv_freq', 'model.layers.10.self_attn.rotary_emb.inv_freq', 'model.layers.17.self_attn.rotary_emb.inv_freq', 'model.layers.19.self_attn.rotary_emb.inv_freq', 'model.layers.16.self_attn.rotary_emb.inv_freq', 'model.layers.13.self_attn.rotary_emb.inv_freq', 'model.layers.21.self_attn.rotary_emb.inv_freq', 'model.layers.11.self_attn.rotary_emb.inv_freq', 'model.layers.5.self_attn.rotary_emb.inv_freq']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+--- Logging error ---
+Traceback (most recent call last):
+  File "/var/conda/lib/python3.10/logging/__init__.py", line 1104, in emit
+    self.flush()
+  File "/var/conda/lib/python3.10/logging/__init__.py", line 1084, in flush
+    self.stream.flush()
+OSError: [Errno 5] Input/output error
+Call stack:
+  File "/var/conda/lib/python3.10/threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+  File "/var/conda/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/var/conda/lib/python3.10/site-packages/ipykernel/parentpoller.py", line 38, in run
+    get_logger().warning("Parent appears to have exited, shutting down.")
+Message: 'Parent appears to have exited, shutting down.'

@@ -1,0 +1,48 @@
+
+Token indices sequence length is longer than the specified maximum sequence length for this model (1267 > 1024). Running this sequence through the model will result in indexing errors
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Some weights of LlamaForCausalLM were not initialized from the model checkpoint at ../../../../../model/TinyLlama-1.1B-Chat-v0.6 and are newly initialized: ['model.layers.11.self_attn.rotary_emb.inv_freq', 'model.layers.12.self_attn.rotary_emb.inv_freq', 'model.layers.6.self_attn.rotary_emb.inv_freq', 'model.layers.9.self_attn.rotary_emb.inv_freq', 'model.layers.19.self_attn.rotary_emb.inv_freq', 'model.layers.1.self_attn.rotary_emb.inv_freq', 'model.layers.20.self_attn.rotary_emb.inv_freq', 'model.layers.8.self_attn.rotary_emb.inv_freq', 'model.layers.17.self_attn.rotary_emb.inv_freq', 'model.layers.13.self_attn.rotary_emb.inv_freq', 'model.layers.15.self_attn.rotary_emb.inv_freq', 'model.layers.3.self_attn.rotary_emb.inv_freq', 'model.layers.4.self_attn.rotary_emb.inv_freq', 'model.layers.5.self_attn.rotary_emb.inv_freq', 'model.layers.2.self_attn.rotary_emb.inv_freq', 'model.layers.21.self_attn.rotary_emb.inv_freq', 'model.layers.16.self_attn.rotary_emb.inv_freq', 'model.layers.14.self_attn.rotary_emb.inv_freq', 'model.layers.7.self_attn.rotary_emb.inv_freq', 'model.layers.0.self_attn.rotary_emb.inv_freq', 'model.layers.10.self_attn.rotary_emb.inv_freq', 'model.layers.18.self_attn.rotary_emb.inv_freq']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+path:  ../../../../../model/TinyLlama-1.1B-Chat-v0.6
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Token indices sequence length is longer than the specified maximum sequence length for this model (1267 > 1024). Running this sequence through the model will result in indexing errors
+KeyboardInterrupt
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+> /tmp/ipykernel_25580/3942632025.py(3)compute_metrics()
+      1 def compute_metrics(pred):
+      2         import pdb; pdb.set_trace()
+----> 3         labels = pred.label_ids
+      4         logits = pred.predictions
+      5         medusa_logits = logits[0, :, : -1].contiguous()
+<transformers.trainer_utils.EvalPrediction object at 0x7f24847e2770>
+array([[ -100,  -100,  -100, ...,  -100,  -100,  -100],
+       [ -100,  -100,  -100, ...,  -100,  -100,  -100],
+       [ -100,  -100,  -100, ...,   893, 29874,   313],
+       ...,
+       [ -100,  -100,  -100, ...,   260,  5580,  1546],
+       [ -100,  -100,  -100, ...,   376,  3644,   871],
+       [ -100,  -100,  -100, ...,  -100,  -100,  -100]])
+array([], shape=(0, 2, 1023, 32000), dtype=float32)
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+KeyboardInterrupt
+Some weights of LlamaForCausalLM were not initialized from the model checkpoint at ../../../../../model/TinyLlama-1.1B-Chat-v0.6 and are newly initialized: ['model.layers.11.self_attn.rotary_emb.inv_freq', 'model.layers.12.self_attn.rotary_emb.inv_freq', 'model.layers.6.self_attn.rotary_emb.inv_freq', 'model.layers.9.self_attn.rotary_emb.inv_freq', 'model.layers.19.self_attn.rotary_emb.inv_freq', 'model.layers.1.self_attn.rotary_emb.inv_freq', 'model.layers.20.self_attn.rotary_emb.inv_freq', 'model.layers.8.self_attn.rotary_emb.inv_freq', 'model.layers.17.self_attn.rotary_emb.inv_freq', 'model.layers.13.self_attn.rotary_emb.inv_freq', 'model.layers.15.self_attn.rotary_emb.inv_freq', 'model.layers.3.self_attn.rotary_emb.inv_freq', 'model.layers.4.self_attn.rotary_emb.inv_freq', 'model.layers.5.self_attn.rotary_emb.inv_freq', 'model.layers.2.self_attn.rotary_emb.inv_freq', 'model.layers.21.self_attn.rotary_emb.inv_freq', 'model.layers.16.self_attn.rotary_emb.inv_freq', 'model.layers.14.self_attn.rotary_emb.inv_freq', 'model.layers.7.self_attn.rotary_emb.inv_freq', 'model.layers.0.self_attn.rotary_emb.inv_freq', 'model.layers.10.self_attn.rotary_emb.inv_freq', 'model.layers.18.self_attn.rotary_emb.inv_freq']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+path:  ../../../../../model/TinyLlama-1.1B-Chat-v0.6
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Token indices sequence length is longer than the specified maximum sequence length for this model (1267 > 1024). Running this sequence through the model will result in indexing errors
+wandb: ERROR Dropped streaming file chunk (see wandb/debug-internal.log)
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode

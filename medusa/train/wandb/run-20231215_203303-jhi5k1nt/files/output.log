@@ -1,0 +1,18 @@
+> /tmp/ipykernel_170690/4075727162.py(7)compute_metrics()
+      5         import pdb; pdb.set_trace()
+      6         #print(labels.shape)
+----> 7         medusa_logits = logits[0,:, : ].contiguous()
+      8
+      9         medusa_labels = labels[...,  1:].contiguous()
+*** NameError: name 'logtis' is not defined
+array([], shape=(0, 1, 1, 125, 32000), dtype=float32)
+array([[ -100,  -100,  -100, ..., 18514, 15084, 29892],
+       [ -100,  -100,  -100, ..., 10983,  3245, 29936],
+       [ -100,  -100,  -100, ...,  2266,   338,   263],
+       ...,
+       [ -100,  -100,  -100, ...,  1125,    13,  4706],
+       [ -100,  -100,  -100, ..., 29900, 29901,    13],
+       [ -100,  -100,  -100, ...,  5480,   727,   338]])
+*** IndexError: index 0 is out of bounds for axis 0 with size 0
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user

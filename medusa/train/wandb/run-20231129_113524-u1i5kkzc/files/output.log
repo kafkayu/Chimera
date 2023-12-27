@@ -1,0 +1,56 @@
+
+Token indices sequence length is longer than the specified maximum sequence length for this model (1267 > 1024). Running this sequence through the model will result in indexing errors
+path ../../../../../model/vicuna-7b-v1.3
+path:  ../../../../../model/vicuna-7b-v1.3
+Loading data...
+Formatting inputs...Skip in lazy mode
+Formatting inputs...Skip in lazy mode
+Token indices sequence length is longer than the specified maximum sequence length for this model (1267 > 1024). Running this sequence through the model will result in indexing errors
+KeyboardInterrupt
+<transformers.trainer_utils.EvalPrediction object at 0x7feebc11f460>
+> /tmp/ipykernel_13542/2998542646.py(50)compute_metrics()
+     48         logits = pred.predictions
+     49         import pdb; pdb.set_trace()
+---> 50         print(pred)
+     51         medusa_logits = logits[0, :, : -1].contiguous()
+     52
+<transformers.trainer_utils.EvalPrediction object at 0x7feea46e71f0>
+*** AttributeError: 'EvalPrediction' object has no attribute 'labels'
+*** AttributeError: 'EvalPrediction' object has no attribute 'keys'
+*** TypeError: '<' not supported between instances of 'str' and 'int'
+array([[ -100,  -100,  -100, ...,  -100,  -100,  -100],
+       [ -100,  -100,  -100, ...,  -100,  -100,  -100],
+       [ -100,  -100,  -100, ...,   893, 29874,   313],
+       ...,
+       [ -100,  -100,  -100, ...,   260,  5580,  1546],
+       [ -100,  -100,  -100, ...,   376,  3644,   871],
+       [ -100,  -100,  -100, ...,  -100,  -100,  -100]])
+137
+0
+array([], shape=(0, 2, 1023, 32000), dtype=float32)
+--KeyboardInterrupt--
+KeyboardInterrupt: Interrupted by user
+<transformers.trainer_utils.EvalPrediction object at 0x7feea46e71f0>
+> /tmp/ipykernel_13542/1513928275.py(44)compute_loss()
+     42             #log[f"medusa{i}_loss_7"] = loss_i_7.item()
+     43         import pdb; pdb.set_trace()
+---> 44         self.log(log)
+     45
+     46         return (loss, logits) #if return_outputs else loss
+torch.Size([])
+torch.Size([1, 2, 1023, 32000])
+tensor([[[[ -0.9927, -20.5625,  -2.8359,  ...,   0.4290,   0.9609,  -1.2070],
+          [-26.0625, -29.8906,  -3.9062,  ..., -33.0625, -17.0938, -24.0469],
+          [ -6.2305,  -5.8984,   4.7070,  ...,  -0.7690,  -4.9609,  -5.0312],
+          ...,
+          [ -2.1953, -29.7812,  10.4688,  ...,   2.3438,  -3.8945,  -2.3164],
+          [ -1.8789, -30.4688,  10.3984,  ...,   2.8223,  -3.4277,  -1.9736],
+          [ -1.5889, -30.9844,  10.0469,  ...,   3.3086,  -2.8164,  -1.5332]],
+         [[ -0.9927, -20.5625,  -2.8359,  ...,   0.4290,   0.9609,  -1.2070],
+          [-26.0625, -29.8906,  -3.9062,  ..., -33.0625, -17.0938, -24.0469],
+          [ -6.2305,  -5.8984,   4.7070,  ...,  -0.7690,  -4.9609,  -5.0312],
+          ...,
+          [ -5.5117,   0.7793,  21.2500,  ...,  -8.7656,  -9.6719,  -9.1328],
+          [ -5.4023,   0.6934,  20.9844,  ...,  -8.6562,  -9.5625,  -8.9922],
+          [ -5.2031,   0.4268,  20.6094,  ...,  -8.4609,  -9.4062,  -8.8203]]]],
+       device='cuda:0')

@@ -1,0 +1,524 @@
+2023-12-26 16:23:09,714 INFO    StreamThr :225350 [internal.py:wandb_internal():86] W&B internal server running at pid: 225350, started at: 2023-12-26 16:23:09.713747
+2023-12-26 16:23:09,717 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status
+2023-12-26 16:23:09,732 INFO    WriterThread:225350 [datastore.py:open_for_write():85] open: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/run-w0x7fz81.wandb
+2023-12-26 16:23:09,732 DEBUG   SenderThread:225350 [sender.py:send():379] send: header
+2023-12-26 16:23:09,744 DEBUG   SenderThread:225350 [sender.py:send():379] send: run
+2023-12-26 16:23:10,500 INFO    SenderThread:225350 [dir_watcher.py:__init__():211] watching files in: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files
+2023-12-26 16:23:10,500 INFO    SenderThread:225350 [sender.py:_start_run_threads():1122] run started: w0x7fz81 with start time 1703578989.715299
+2023-12-26 16:23:10,500 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: summary_record
+2023-12-26 16:23:10,501 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-26 16:23:10,511 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: check_version
+2023-12-26 16:23:10,512 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: check_version
+2023-12-26 16:23:10,869 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: run_start
+2023-12-26 16:23:10,918 DEBUG   HandlerThread:225350 [system_info.py:__init__():31] System info init
+2023-12-26 16:23:10,918 DEBUG   HandlerThread:225350 [system_info.py:__init__():46] System info init done
+2023-12-26 16:23:10,918 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:23:10,918 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:23:10,919 INFO    HandlerThread:225350 [system_monitor.py:probe():201] Collecting system info
+2023-12-26 16:23:10,919 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:23:10,920 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:23:10,920 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started gpu monitoring
+2023-12-26 16:23:10,921 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started memory monitoring
+2023-12-26 16:23:10,924 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started network monitoring
+2023-12-26 16:23:11,023 DEBUG   HandlerThread:225350 [system_info.py:probe():195] Probing system
+2023-12-26 16:23:11,028 DEBUG   HandlerThread:225350 [system_info.py:_probe_git():180] Probing git
+2023-12-26 16:23:11,036 DEBUG   HandlerThread:225350 [system_info.py:_probe_git():188] Probing git done
+2023-12-26 16:23:11,036 DEBUG   HandlerThread:225350 [system_info.py:probe():240] Probing system done
+2023-12-26 16:23:11,036 DEBUG   HandlerThread:225350 [system_monitor.py:probe():210] {'os': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.35', 'python': '3.10.12', 'heartbeatAt': '2023-12-26T08:23:11.025127', 'startedAt': '2023-12-26T08:23:09.703472', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'git': {'remote': 'https://github.com/FasterDecoding/Medusa.git', 'commit': 'e76b4800e66ee824e75e317eeb154120c7499509'}, 'email': None, 'root': '/home/liyunhao/nlptest/medusa/Medusa', 'host': 'A800-1_liyunhao', 'username': 'liyunhao', 'executable': '/var/conda/bin/python3.10', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 2175.0234765624996, 'min': 800.0, 'max': 3400.0}, 'cpu_freq_per_core': [{'current': 1324.424, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2200.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1415.764, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2599.998, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 1500.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3104.967, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 2200.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2402.329, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2200.0, 'min': 800.0, 'max': 3400.0}, {'current': 1400.004, 'min': 800.0, 'max': 3400.0}, {'current': 1242.153, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2220.896, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 1425.575, 'min': 800.0, 'max': 3400.0}, {'current': 2599.999, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 3300.0, 'min': 800.0, 'max': 3400.0}, {'current': 3300.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 800.0, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3200.001, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3199.998, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}, {'current': 3400.0, 'min': 800.0, 'max': 3400.0}, {'current': 3114.293, 'min': 800.0, 'max': 3400.0}, {'current': 3200.0, 'min': 800.0, 'max': 3400.0}], 'disk': {'total': 7450.046226501465, 'used': 7041.997703552246}, 'gpu': 'NVIDIA A800 80GB PCIe', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}, {'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}, {'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}, {'name': 'NVIDIA A800 80GB PCIe', 'memory_total': 85899345920}], 'memory': {'total': 755.2678985595703}}
+2023-12-26 16:23:11,036 INFO    HandlerThread:225350 [system_monitor.py:probe():211] Finished collecting system info
+2023-12-26 16:23:11,037 INFO    HandlerThread:225350 [system_monitor.py:probe():214] Publishing system info
+2023-12-26 16:23:11,037 DEBUG   HandlerThread:225350 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-12-26 16:23:11,038 DEBUG   HandlerThread:225350 [system_info.py:_save_pip():67] Saving pip packages done
+2023-12-26 16:23:11,038 DEBUG   HandlerThread:225350 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-12-26 16:23:11,502 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/conda-environment.yaml
+2023-12-26 16:23:11,502 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/requirements.txt
+2023-12-26 16:23:11,503 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-summary.json
+2023-12-26 16:23:19,117 DEBUG   HandlerThread:225350 [system_info.py:_save_conda():86] Saving conda packages done
+2023-12-26 16:23:19,121 INFO    HandlerThread:225350 [system_monitor.py:probe():216] Finished publishing system info
+2023-12-26 16:23:19,130 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:19,130 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: keepalive
+2023-12-26 16:23:19,132 DEBUG   SenderThread:225350 [sender.py:send():379] send: files
+2023-12-26 16:23:19,132 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-metadata.json with policy now
+2023-12-26 16:23:19,158 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:23:19,159 DEBUG   SenderThread:225350 [sender.py:send():379] send: telemetry
+2023-12-26 16:23:19,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:23:19,173 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-26 16:23:19,504 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/conda-environment.yaml
+2023-12-26 16:23:19,504 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-metadata.json
+2023-12-26 16:23:19,627 DEBUG   SenderThread:225350 [sender.py:send():379] send: config
+2023-12-26 16:23:19,630 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,630 DEBUG   SenderThread:225350 [sender.py:send():379] send: telemetry
+2023-12-26 16:23:19,630 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,630 WARNING SenderThread:225350 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-26 16:23:19,631 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,631 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,631 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,631 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,631 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,632 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:23:19,632 DEBUG   SenderThread:225350 [sender.py:send():379] send: history
+2023-12-26 16:23:19,632 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: summary_record
+2023-12-26 16:23:19,636 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-26 16:23:20,070 INFO    wandb-upload_0:225350 [upload_job.py:push():131] Uploaded file /tmp/tmpalsae4xewandb/pwz8i0jb-wandb-metadata.json
+2023-12-26 16:23:20,504 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-summary.json
+2023-12-26 16:23:20,505 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_created():272] file/dir created: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:20,639 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:22,506 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:24,506 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:25,369 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-26 16:23:25,371 DEBUG   SenderThread:225350 [sender.py:send():379] send: history
+2023-12-26 16:23:25,371 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: summary_record
+2023-12-26 16:23:25,373 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-26 16:23:25,507 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-summary.json
+2023-12-26 16:23:26,374 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:27,508 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:28,509 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:30,510 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:31,974 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:34,155 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:23:34,156 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:23:36,513 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:37,522 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:38,837 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-26 16:23:38,838 DEBUG   SenderThread:225350 [sender.py:send():379] send: history
+2023-12-26 16:23:38,838 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: summary_record
+2023-12-26 16:23:38,840 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-26 16:23:39,514 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-summary.json
+2023-12-26 16:23:40,515 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:42,374 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-26 16:23:42,377 DEBUG   SenderThread:225350 [sender.py:send():379] send: history
+2023-12-26 16:23:42,378 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: summary_record
+2023-12-26 16:23:42,380 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-26 16:23:42,516 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-summary.json
+2023-12-26 16:23:42,517 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:43,386 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:43,517 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:44,517 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/config.yaml
+2023-12-26 16:23:44,518 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:46,518 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:49,155 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:23:49,156 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:23:49,464 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:50,519 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:23:54,465 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:23:59,465 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:02,526 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:24:04,155 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:24:04,156 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:24:05,454 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:10,924 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:24:10,928 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:24:10,931 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:12,531 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:24:15,932 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:19,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:24:19,157 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:24:21,464 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:26,465 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:31,466 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:34,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:24:34,157 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:24:36,481 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:36,544 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:24:40,932 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:24:41,935 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:46,936 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:49,155 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:24:49,156 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:24:52,488 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:24:57,489 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:02,490 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:04,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:25:04,157 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:25:07,512 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:10,937 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:25:12,940 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:17,941 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:19,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:25:19,157 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:25:20,565 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:25:23,870 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:24,568 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:25:28,871 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:33,872 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:34,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:25:34,158 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:25:39,526 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:40,942 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:25:44,946 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:49,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:25:49,158 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:25:50,464 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:25:55,466 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:00,467 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:04,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:26:04,157 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:26:06,459 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:10,948 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:26:11,951 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:16,952 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:19,156 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:26:19,157 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:26:22,469 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:27,470 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:32,600 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:26:33,461 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:34,157 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:26:34,158 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:26:36,602 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:26:39,277 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:40,954 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:26:44,623 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:46,606 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:26:49,157 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:26:49,157 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:26:50,516 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:26:55,517 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:00,518 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:04,157 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:27:04,159 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:27:06,477 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:10,960 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:27:11,963 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:16,964 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:19,157 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:27:19,158 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:27:22,456 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:27,457 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:32,458 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:34,157 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:27:34,158 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:27:36,744 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:27:36,745 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:27:36,745 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:27:36,745 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:27:36,747 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:27:36,753 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-26 16:27:36,753 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined disk monitor
+2023-12-26 16:27:36,822 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-26 16:27:36,823 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined memory monitor
+2023-12-26 16:27:36,823 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined network monitor
+2023-12-26 16:27:36,825 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:27:37,828 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:42,829 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:47,830 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:49,158 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:27:49,159 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:27:53,531 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:27:58,532 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:03,533 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:04,158 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:28:04,159 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:28:09,530 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:14,531 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:19,158 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:28:19,159 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:28:20,510 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:25,511 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:30,512 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:34,158 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:28:34,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:28:36,476 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:41,477 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:46,478 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:49,158 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:28:49,159 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:28:51,508 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:28:56,509 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:01,510 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:04,159 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:29:04,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:29:07,466 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:12,467 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:17,468 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:19,159 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:29:19,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:29:22,524 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:27,525 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:32,526 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:34,159 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:29:34,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:29:38,441 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:43,442 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:48,443 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:49,159 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:29:49,159 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:29:53,467 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:29:58,468 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:03,468 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:04,159 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:30:04,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:30:09,451 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:14,452 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:19,159 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:30:19,159 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:30:19,526 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:24,527 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:29,527 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:34,159 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:30:34,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:30:35,456 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:38,233 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:38,233 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:38,233 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:38,233 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:38,234 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:30:38,235 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:38,235 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:30:38,235 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:30:38,236 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:30:38,236 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:30:38,236 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:30:38,236 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:30:38,239 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-26 16:30:38,239 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined disk monitor
+2023-12-26 16:30:38,240 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:30:38,526 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:38,526 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:38,526 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:38,526 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:38,527 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:38,528 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:30:38,528 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started gpu monitoring
+2023-12-26 16:30:38,528 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started memory monitoring
+2023-12-26 16:30:38,529 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started network monitoring
+2023-12-26 16:30:38,558 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:30:38,558 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:30:38,558 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:30:38,559 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:30:38,559 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-26 16:30:38,559 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:30:38,560 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined disk monitor
+2023-12-26 16:30:38,560 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:30:38,640 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-26 16:30:38,641 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined memory monitor
+2023-12-26 16:30:38,641 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined network monitor
+2023-12-26 16:30:38,642 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:30:38,980 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:38,980 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:38,980 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:38,980 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:38,981 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:38,981 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:30:38,981 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started gpu monitoring
+2023-12-26 16:30:38,984 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started memory monitoring
+2023-12-26 16:30:38,984 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started network monitoring
+2023-12-26 16:30:39,004 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:30:39,004 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:30:39,005 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:30:39,005 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:30:39,005 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:30:39,006 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:30:39,008 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-26 16:30:39,008 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined disk monitor
+2023-12-26 16:30:39,062 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-26 16:30:39,063 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined memory monitor
+2023-12-26 16:30:39,063 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined network monitor
+2023-12-26 16:30:39,064 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:30:39,551 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:39,552 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:39,552 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:39,552 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:39,553 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:30:39,553 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:30:39,553 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:30:39,553 WARNING HandlerThread:225350 [interfaces.py:finish():207] Failed to finish cpu monitoring: cannot join thread before it is started
+2023-12-26 16:30:39,554 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:39,554 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:30:39,554 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:30:39,554 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:30:39,555 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:30:40,556 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:40,775 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:40,775 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:40,775 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:40,775 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:40,777 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:40,778 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:30:40,778 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started gpu monitoring
+2023-12-26 16:30:40,779 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started memory monitoring
+2023-12-26 16:30:40,781 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started network monitoring
+2023-12-26 16:30:41,312 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:30:41,313 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:30:41,313 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:30:41,313 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:30:41,314 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-26 16:30:41,314 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:30:41,314 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined disk monitor
+2023-12-26 16:30:41,314 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:30:41,388 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-26 16:30:41,388 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined memory monitor
+2023-12-26 16:30:41,388 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined network monitor
+2023-12-26 16:30:41,390 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:30:41,716 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:30:44,636 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:44,636 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:44,636 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:44,636 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:44,638 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:44,640 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:30:44,643 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started gpu monitoring
+2023-12-26 16:30:44,643 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started memory monitoring
+2023-12-26 16:30:44,644 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started network monitoring
+2023-12-26 16:30:45,643 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:46,718 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:30:46,882 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:30:46,882 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:30:46,882 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:30:46,883 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:30:46,883 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-26 16:30:46,883 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:30:46,884 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined disk monitor
+2023-12-26 16:30:46,884 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:30:46,963 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-26 16:30:46,963 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined memory monitor
+2023-12-26 16:30:46,963 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined network monitor
+2023-12-26 16:30:46,965 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:30:49,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:30:49,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:30:50,855 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:50,855 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:50,855 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:50,855 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:50,856 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:50,857 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:30:50,860 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started gpu monitoring
+2023-12-26 16:30:50,860 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:50,861 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started memory monitoring
+2023-12-26 16:30:50,862 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started network monitoring
+2023-12-26 16:30:51,592 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: pause
+2023-12-26 16:30:51,592 INFO    HandlerThread:225350 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-26 16:30:51,592 INFO    HandlerThread:225350 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-26 16:30:51,592 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:30:51,592 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:30:51,593 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:30:51,594 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-26 16:30:51,594 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined disk monitor
+2023-12-26 16:30:51,624 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-26 16:30:51,624 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined memory monitor
+2023-12-26 16:30:51,624 INFO    HandlerThread:225350 [interfaces.py:finish():202] Joined network monitor
+2023-12-26 16:30:51,625 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:30:52,721 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:30:54,169 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: resume
+2023-12-26 16:30:54,169 INFO    HandlerThread:225350 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-26 16:30:54,169 INFO    HandlerThread:225350 [system_monitor.py:start():181] Starting system monitor
+2023-12-26 16:30:54,169 INFO    SystemMonitor:225350 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-26 16:30:54,171 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started cpu monitoring
+2023-12-26 16:30:54,171 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started disk monitoring
+2023-12-26 16:30:54,172 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started gpu monitoring
+2023-12-26 16:30:54,174 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started memory monitoring
+2023-12-26 16:30:54,175 INFO    SystemMonitor:225350 [interfaces.py:start():190] Started network monitoring
+2023-12-26 16:30:54,861 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-26 16:30:54,864 DEBUG   SenderThread:225350 [sender.py:send():379] send: config
+2023-12-26 16:30:54,866 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:30:54,867 DEBUG   SenderThread:225350 [sender.py:send():379] send: metric
+2023-12-26 16:30:54,867 WARNING SenderThread:225350 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-26 16:30:54,867 DEBUG   SenderThread:225350 [sender.py:send():379] send: history
+2023-12-26 16:30:54,868 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: summary_record
+2023-12-26 16:30:54,868 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-26 16:30:55,722 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-summary.json
+2023-12-26 16:30:55,870 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:30:56,723 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:31:00,871 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:04,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:31:04,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:31:06,483 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:07,729 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/config.yaml
+2023-12-26 16:31:11,968 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:16,969 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:19,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:31:19,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:31:22,419 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:27,420 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:32,421 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:34,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:31:34,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:31:37,518 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:42,519 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:47,520 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:49,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:31:49,160 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:31:53,488 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:31:54,175 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-26 16:31:54,179 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:31:59,181 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:04,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:32:04,162 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:32:04,481 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:09,482 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:14,483 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:19,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:32:19,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:32:20,437 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:24,184 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:32:26,188 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:31,189 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:34,161 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:32:34,162 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:32:36,518 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:41,519 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:46,776 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:32:46,943 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:49,160 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:32:49,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:32:50,778 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:32:52,545 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:32:54,185 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:32:58,189 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:00,784 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:33:03,644 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:04,161 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:33:04,162 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:33:04,786 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:33:09,483 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:14,484 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:19,161 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:33:19,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:33:19,495 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:24,191 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:33:25,194 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:30,195 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:34,162 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:33:34,163 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:33:35,522 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:40,523 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:45,524 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:49,161 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:33:49,161 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:33:51,516 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:33:54,196 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:33:54,812 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:33:57,199 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:02,200 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:04,162 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:34:04,163 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:34:07,501 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:12,502 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:17,503 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:19,162 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:34:19,163 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:34:23,441 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:24,203 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:34:29,207 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:34,162 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:34:34,163 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:34:34,435 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:39,436 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:44,437 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:49,162 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-26 16:34:49,163 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: stop_status
+2023-12-26 16:34:49,459 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:54,208 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:34:54,748 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
+2023-12-26 16:34:55,363 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: partial_history
+2023-12-26 16:34:55,365 DEBUG   SenderThread:225350 [sender.py:send():379] send: history
+2023-12-26 16:34:55,366 DEBUG   SenderThread:225350 [sender.py:send_request():406] send_request: summary_record
+2023-12-26 16:34:55,367 INFO    SenderThread:225350 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-26 16:34:55,843 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/wandb-summary.json
+2023-12-26 16:34:56,844 INFO    Thread-12 :225350 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/liyunhao/nlptest/medusa/Medusa/medusa/train/wandb/run-20231226_162309-w0x7fz81/files/output.log
+2023-12-26 16:34:58,267 INFO    memory    :225350 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2023-12-26 16:34:58,267 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-26 16:34:58,270 DEBUG   SystemMonitor:225350 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-26 16:34:58,277 DEBUG   SenderThread:225350 [sender.py:send():379] send: stats
+2023-12-26 16:35:00,039 INFO    MainThread:225350 [internal.py:handle_exit():76] Internal process exited
+2023-12-26 16:35:00,280 DEBUG   HandlerThread:225350 [handler.py:handle_request():144] handle_request: status_report
