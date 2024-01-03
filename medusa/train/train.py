@@ -128,6 +128,7 @@ class CustomizedTrainer(Trainer):
                         logits = tuple(v for k, v in outputs.items() if k not in ignore_keys + ["loss"])
                     else:
                         logits = outputs[:][0]
+                    #import pdb;pdb.set_trace()   
                 else:
                     loss = None
                     with self.compute_loss_context_manager():
@@ -147,39 +148,41 @@ class CustomizedTrainer(Trainer):
         logits = nested_detach(logits)
         if len(logits) == 1:
             logits = logits[0]
-
+        #import pdb;pdb.set_trace()
         return (loss, logits, labels)
-    def save_model(self, output_dir=None, _internal_call=False):
-        # import pdb;pdb.set_trace()
-        # output_dir = self.args.output_dir
-        # 创建输出目录
-        os.makedirs(output_dir, exist_ok=True)
+    # def save_model(self, output_dir=None, _internal_call=False):
+    #     # import pdb;pdb.set_trace()
+    #     # output_dir = self.args.output_dir
+    #     # 创建输出目录
+    #     os.makedirs(output_dir, exist_ok=True)
  
-        # 保存训练参数
-        torch.save(
-        self.model.trimlp.state_dict(),
-        os.path.join(output_dir, "medusa_lm_head.pt"),
-      )
-        torch.save(self.model.fast_layer1.state_dict(), os.path.join(output_dir, "fast_layer1.pt"))
- 
-        # # 保存有梯度变化的模型参数
-        # saved_params = {
-        #     k: v.to("cpu") for k, v in self.model.named_parameters() if v.requires_grad
-        # }
-        torch.save(self.model.medusa_head.state_dict(), os.path.join(output_dir, "medusa_head.pt"))
+    #     # 保存训练参数
+    #     torch.save(
+    #     self.model.trimlp.state_dict(),
+    #     os.path.join(output_dir, "medusa_lm_head.pt"),
+    #   )
+    #     torch.save(self.model.fast_layer1.state_dict(), os.path.join(output_dir, "fast_layer1.pt"))
+    #     torch.save(self.fastoutput.state_dict(),os.path.join(output_dir, "fastouput.pt"))
+    #     # # 保存有梯度变化的模型参数
+    #     # saved_params = {
+    #     #     k: v.to("cpu") for k, v in self.model.named_parameters() if v.requires_grad
+    #     # }
+    #     torch.save(self.model.medusa_head.state_dict(), os.path.join(output_dir, "medusa_head.pt"))
+        
     def compute_loss(self, model, inputs, return_outputs=False):
         # DDP will give us model.module
         if hasattr(model, "module"):
             medusa = model.module.medusa
         else:
             medusa = model.medusa
-
+    
         logits1 = model(
             input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"]
         )
         logits =logits1["logits"]
         
         labels = inputs["labels"]
+        #import pdb;pdb.set_trace()
         # Shift so that tokens < n predict n
         loss = 0
         loss_fct =CrossEntropyLoss()
@@ -188,13 +191,13 @@ class CustomizedTrainer(Trainer):
         for i in range(medusa):
             #########修改后#######
             # medusa_logits = logits[i, :, : -1].contiguous()
-            
+            #import pdb;pdb.set_trace()
             # medusa_labels = labels[...,  2:].contiguous()
             ######原medusa#########
             
-            medusa_logits = logits[i, :, : ].contiguous()
+            medusa_logits = logits[i, :, :-1 ].contiguous()
             
-            medusa_labels = labels[...,  3:].contiguous()
+            medusa_labels = labels[...,  2:].contiguous()
             medusa_logits = medusa_logits.view(-1, logits.shape[-1])
             medusa_labels = medusa_labels.view(-1)
             
@@ -224,49 +227,8 @@ class CustomizedTrainer(Trainer):
                 #self.log(logeval)
             #log[f"medusa{i}_loss"] = loss_i_7.item()
         self.log(log)
-        return (loss+logits1['hsloss'], logits) if return_outputs else loss+logits1['hsloss']
-    def compute_metrics(pred):
-        logits,labels = pred
-        loss = 0
-        log = {}
-        lables = pred.label_ids
-        loss_fct = CrossEntropyLoss()
-        #logits = pred.predictions
-        #print(logits.shape)
-        logits = torch.tensor(logits)
-        labels = torch.tensor(labels)
-        #import pdb; pdb.set_trace()
-        #print(labels.shape)
-        medusa_logits = logits.contiguous()
-            
-        medusa_labels = labels[...,3:].contiguous()
-        medusa_logits = medusa_logits.view(-1, logits.shape[-1])
-        medusa_labels = medusa_labels.view(-1)
-        
-        medusa_labels = medusa_labels.to(medusa_logits.device)
-        import pdb;pdb.set_trace()
-        #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=1 - 1e-7)
-        
-        loss_i = loss_fct(medusa_logits, medusa_labels)
-        loss += loss_i
-        not_ignore = medusa_labels.ne(IGNORE_TOKEN_ID)
-        medusa_labels = medusa_labels[not_ignore]
-
-        # Add top-k accuracy
-        for k in range(1, 6):
-            _, topk = medusa_logits.topk(k, dim=-1)
-            topk = topk[not_ignore]
-            correct = topk.eq(medusa_labels.unsqueeze(-1)).any(-1)
-            log[f"eval_medusa{0}_top{k}"] = correct.float().mean().item()
-            #res[f"medusa{i}_top{k}"] = correct.float().mean().item()
-    
-        
-        log[f"eval_medusa{0}_loss"] = loss_i.item()
-
-
-
-        self.log(log)
-        return log
+        return (logits1['hsloss'], logits) if return_outputs else logits1['hsloss']
+   
 
 @dataclass
 class ModelArguments:
@@ -488,7 +450,7 @@ def compute_metrics(pred):
         logits,labels = pred
         loss = 0
         log = {}
-        lables = pred.label_ids
+        #lables = pred.label_ids
         loss_fct = CrossEntropyLoss()
         #logits = pred.predictions
         #print(logits.shape)
@@ -496,16 +458,18 @@ def compute_metrics(pred):
         labels = torch.tensor(labels)
         #import pdb; pdb.set_trace()
         #print(labels.shape)
-        medusa_logits = logits.contiguous()
-            
-        medusa_labels = labels[...,3:].contiguous()
+
+        #import pdb;pdb.set_trace()
+        medusa_logits = logits[:,:2046 ].contiguous()
+        #import pdb;pdb.set_trace()     
+        medusa_labels = labels[...,2:].contiguous()
         medusa_logits = medusa_logits.view(-1, logits.shape[-1])
         medusa_labels = medusa_labels.view(-1)
         
         medusa_labels = medusa_labels.to(medusa_logits.device)
         #import pdb;pdb.set_trace()
         #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=1 - 1e-7)
-        
+        #import pdb;pdb.set_trace()
         loss_i = loss_fct(medusa_logits, medusa_labels)
         loss += loss_i
         not_ignore = medusa_labels.ne(IGNORE_TOKEN_ID)
@@ -654,22 +618,22 @@ def train():
         lm_head = medusa_lm_head.module.medusa_head
     else:
         lm_head = medusa_lm_head.medusa_head
-    torch.save(
-        lm_head.state_dict(),
-        os.path.join(training_args.output_dir, "medusa_lm_head.pt"),
-    )
     # torch.save(
-    #     medusa_lm_head.grulayer.state_dict(),
-    #     os.path.join(training_args.output_dir, "grulayer.pt"),
+    #     lm_head.state_dict(),
+    #     os.path.join(training_args.output_dir, "medusa_lm_head.pt"),
     # )
-    torch.save(
-        medusa_lm_head.trimlp.state_dict(),
-        os.path.join(training_args.output_dir, "trimlp.pt"),
-    )
-    torch.save(
-        medusa_lm_head.fast_layer1.state_dict(),
-        os.path.join(training_args.output_dir, "fastlayer1.pt"),
-    )
+    # # torch.save(
+    # #     medusa_lm_head.grulayer.state_dict(),
+    # #     os.path.join(training_args.output_dir, "grulayer.pt"),
+    # # )
+    # torch.save(
+    #     medusa_lm_head.trimlp.state_dict(),
+    #     os.path.join(training_args.output_dir, "trimlp.pt"),
+    # )
+    # torch.save(
+    #     medusa_lm_head.fast_layer1.state_dict(),
+    #     os.path.join(training_args.output_dir, "fastlayer1.pt"),
+    #)
     # torch.save(
     #     medusa_lm_head.fast_layer1.state_dict(),
     #     os.path.join(training_args.output_dir, "fastlayer2.pt"),
@@ -714,10 +678,10 @@ def train():
     )
 
     #)
-    # torch.save(
-    #         medusa_lm_head.fast_layer2.state_dict(),
-    #         os.path.join(training_args.output_dir, "fastlayer3.pt"),
-    #     )
+    torch.save(
+            medusa_lm_head.fastoutput.state_dict(),
+            os.path.join(training_args.output_dir, "fastoutput.pt"),
+        )
 
 
 

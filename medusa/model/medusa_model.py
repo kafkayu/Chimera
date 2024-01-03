@@ -9,6 +9,7 @@ import os
 from huggingface_hub import hf_hub_download
 import copy
 from torch.nn import CrossEntropyLoss
+from transformers.models.llama.modeling_llama import  LlamaModel,LlamaDecoderLayer
 
 class SingleMedusa():
     def __init__(self,model,medusa_head_name_or_path ='../../model/medusa_8_1_token' , medusa_num_heads = 8,medusa_num_layers=1):
@@ -120,8 +121,8 @@ class MedusaModel(nn.Module):
         self.medusa_head = nn.ModuleList(
             [
                 nn.Sequential(
-                    *([ResBlock(self.hidden_size*2)] * medusa_num_layers),
-                    nn.Linear(self.hidden_size*2, self.vocab_size, bias=False),
+                    *([ResBlock(self.hidden_size)] * medusa_num_layers),
+                    nn.Linear(self.hidden_size, self.vocab_size, bias=False),
                 )
                 for _ in range(medusa_num_heads)
             ]
@@ -133,54 +134,35 @@ class MedusaModel(nn.Module):
                     *([ResBlock(self.hidden_size*3)] ),
                     nn.Linear(self.hidden_size*3, self.hidden_size, bias=False),
                 )#copy.deepcopy(base_model.model.layers[0])
-        self.fast_layer1 = nn.Sequential(copy.deepcopy(base_model.model.layers[0]),
-                                         copy.deepcopy(base_model.model.layers[4]),
-                                         copy.deepcopy(base_model.model.layers[-4]),
-                                          copy.deepcopy(base_model.model.layers[-1])
-                                        )
-
-
+        # self.fast_layer1 = nn.Sequential(copy.deepcopy(base_model.model.layers[0]),
+        #                                  copy.deepcopy(base_model.model.layers[4]),
+        #                                  copy.deepcopy(base_model.model.layers[-4]),
+        #                                   copy.deepcopy(base_model.model.layers[-1])
+        #                                 )
+        newconfig = base_model.config
+        newconfig.hidden_size = newconfig.hidden_size*2
+        self.fast_layer1 = LlamaDecoderLayer(newconfig)
+        self.fastoutput = nn.Sequential(
+                    *([ResBlock(self.hidden_size*2)] ),
+                    nn.Linear(self.hidden_size*2, self.hidden_size, bias=False),
+                )
             # copy.deepcopy(base_model.model.layers[-8]),
             # copy.deepcopy(base_model.model.layers[-1])
        # nn.Sequential()
         for param in self.fast_layer1.parameters():
             param.require_grad = True
-        # for param in self.fast_layer2.parameters():
-        #     param.requires_grad = True
-        # for param in self.fast_layer3.parameters():
-        #     param.requires_grad = True
-        # for param in self.fast_layer4.parameters():
-        #     param.requires_grad = True
-        # self.fast_layer2 = copy.deepcopy(base_model.model.layers[6])
-        # self.fast_layer3 = copy.deepcopy(base_model.model.layers[12])
-        # self.fast_layer4 = copy.deepcopy(base_model.model.layers[24])
-        # self.fast_layer5 = copy.deepcopy(base_model.model.layers[-1])
-        # self.fitlayer = nn.Sequential(
-        #             *([ResBlock(self.hidden_size)]),
-        #             nn.Linear(self.hidden_size, self.hidden_size, bias=False),
-        #         )
-        #self.fast_layer3 = copy.deepcopy(base_model.model.layers[-1])
-        #self.fast_layer2 = copy.deepcopy(base_model.model.layers[1])
-        #self.medusa_head.to(self.base_model.dtype).to(self.base_model.device)
-        # Ensure medusa_head's dtype and device align with the base_model
-        #self.grulayer.to(self.base_model.device)
-        # self.W =  nn.Sequential(
-        #             *([ResBlock(self.hidden_size)] ),
-        #             nn.Linear(self.hidden_size, self.hidden_size, bias=False),
-        #         )
-        # self.W.to(self.base_model.dtype).to(self.base_model.device)
+
         self.medusa_head.to(self.base_model.dtype).to(self.base_model.device)
         self.fast_layer1.to(self.base_model.dtype).to(self.base_model.device)
-        # self.fast_layer2.to(self.base_model.dtype).to(self.base_model.device)
-        # self.fast_layer3.to(self.base_model.dtype).to(self.base_model.device)
-        # self.fast_layer4.to(self.base_model.dtype).to(self.base_model.device)
         self.trimlp.to(self.base_model.dtype).to(self.base_model.device)
+        self.fastoutput.to(self.base_model.dtype).to(self.base_model.device)
         # for param in self.fast_layer.parameters():
         #     param.requires_grad = True
         for i in range(medusa_num_heads):
             # Initialize the weights of each medusa_head using the base model's weights
             #self.medusa_head[i][-1].weight.data[:] = base_model.lm_head.weight.data[:]
-            self.medusa_head[i][-1].weight.data[:]=torch.cat((base_model.lm_head.weight.data,base_model.lm_head.weight.data),dim=-1)
+            self.medusa_head[i][-1].weight.data[:]=base_model.lm_head.weight.data
+            #torch.cat((base_model.lm_head.weight.data,base_model.lm_head.weight.data),dim=-1)
             #torch.cat((base_model.lm_head.weight.data),dim=-1)#torch.cat((base_model.lm_head.weight.data,base_model.lm_head.weight.data),dim=-1),base_model.lm_head.weight.data ,base_model.lm_head.weight.data
             #,base_model.lm_head.weight.data
     def get_tokenizer(self):
@@ -320,21 +302,25 @@ class MedusaModel(nn.Module):
         # trihs =trihs[:,:,-1,:] #得到每一个token混合后的输出
         # trihs = torch.cat((trihs[:,:1],trihs),dim=-2)
 
-        #####1.获取fastlayer层#####
+        #####1.get trigram#####
         embed =self.base_model.model.embed_tokens(input_ids)
-        embedtrigram = torch.cat((embed[:,:-2],embed[:,1:-1],embed[:,2:],),dim=-1)
+        embedtrigram = torch.cat((embed[:,:-2],embed[:,1:-1],embed[:,2:]),dim=-1)
+        #gram0 = torch.cat((embed[:,0],embed[:,0],embed[:,0]),dim=-1).unsqueeze(1)
+        gram1 = torch.cat((embed[:,0],embed[:,1],embed[:,1]),dim=-1).unsqueeze(1)
+        embedtrigram = torch.cat((gram1,embedtrigram),dim=-2)
         embed = self.trimlp(embedtrigram )
+        
         from modeling_attn_mask_utils import AttentionMaskConverter, _prepare_4d_causal_attention_mask
         batch_size, seq_length = embed.shape[:2]
         attention_mask = _prepare_4d_causal_attention_mask(
-                         attention_mask[:,:-2], (batch_size, seq_length), embed, 0
+                         attention_mask[:,:-1], (batch_size, seq_length), embed, 0
                     )
         attention_mask  = attention_mask.to(self.base_model.device)
         # embedtrigram = torch.cat((embed[:,:-2],embed[:,1:-1],embed[:,2:]),dim=-1)
         #for  i in self.fast_layer :   
-        for i in self.fast_layer1:
-            embed = i(embed ,attention_mask = attention_mask)
-            embed = embed[0]
+        input1 = torch.cat((outputs[0][:,:-1],embed[:,:]),dim=-1)
+        output_fastlayer =    self.fast_layer1(input1,attention_mask = attention_mask)
+        output_fastlayer = self.fastoutput(output_fastlayer[0])
         # output3 = self.fast_layer3(output3[0]  ,attention_mask = attention_mask)
         # output3 = self.fast_layer4(output3[0]  ,attention_mask = attention_mask)
         # output3 = self.fast_layer5(output3[0]  ,attention_mask = attention_mask)
@@ -410,15 +396,15 @@ class MedusaModel(nn.Module):
             # )
         ################teacher and student###################
         loss_fct = torch.nn.MSELoss(size_average=None, reduce=None, reduction='mean')
-        hsloss =loss_fct( outputs[0][:,2:].clone(),embed[:,:])  
+        hsloss =loss_fct( outputs[0][:,1:].clone(),output_fastlayer)  
         ###############################################
         
-        embed3 = torch.cat((outputs[0][:,1:-2],embed[:,:-1]),dim=-1)#output2[0][:,-seq_length+2:-1]
+        #embed3 = torch.cat((outputs[0][:,1:-2],embed[:,:-1]),dim=-1)#output2[0][:,-seq_length+2:-1]
         medusa_logits = []
         # TODO: Consider parallelizing this loop for efficiency?
         for i in range(self.medusa):
             #######修改后输出######
-            medusa_logits.append(self.medusa_head[i](embed3.unsqueeze(0)))#self.medusa_head[i]embed3.unsqueeze(0)(outputs[0]))#hidden_states[i*4].clone()))gruout.to(self.base_model.dtype)
+            medusa_logits.append(self.base_model.lm_head(output_fastlayer))#self.medusa_head[i]embed3.unsqueeze(0)(outputs[0]))#hidden_states[i*4].clone()))gruout.to(self.base_model.dtype)
         
             ######原输出######
             #medusa_logits.append(self.medusa_head[i]((outputs[0].clone())))
@@ -426,77 +412,10 @@ class MedusaModel(nn.Module):
         #     return torch.stack(medusa_logits, dim=0), outputs, orig
         if output_orig:
             return torch.stack(medusa_logits, dim=0), outputs, orig
-        #hsloss +=loss_fct( orig[:,3:].clone(),medusa_logits[0][:,:]) 
+        #hsloss +=loss_fct( orig[:,1:].clone(),medusa_logits[0][:,:]) 
         return {"logits":torch.stack(medusa_logits, dim=0),"hsloss":hsloss}
        
-    def single_forward(
-        self,
-        input_ids=None,
-        attention_mask=None,
-        labels=None,
-        past_key_values=None,
-        output_orig=False,
-        position_ids=None,
-        
-    ):
-        """Forward pass of the MedusaModel.
 
-        Args:
-            input_ids (torch.Tensor, optional): Input token IDs.
-            attention_mask (torch.Tensor, optional): Attention mask.
-            labels (torch.Tensor, optional): Ground truth labels for loss computation.
-            past_key_values (tuple, optional): Tuple containing past key and value states for attention.
-            output_orig (bool, optional): Whether to also output predictions from the original LM head.
-            position_ids (torch.Tensor, optional): Position IDs.
-
-        Returns:
-            torch.Tensor: A tensor containing predictions from all Medusa heads.
-            (Optional) Original predictions from the base model's LM head.
-        """
-        with torch.inference_mode():
-            # Pass input through the base model
-            outputs = self.base_model.model(
-                input_ids=input_ids,
-                attention_mask=attention_mask,
-                past_key_values=past_key_values,
-                position_ids=position_ids,
-                #output_hidden_states=True,
-            )
-            if output_orig:
-                orig = self.base_model.lm_head(outputs[0])
-        
-        #####1.获取fastlayer层#####
-        embed =self.base_model.model.embed_tokens(input_ids)
-        embedtrigram = torch.cat((embed[:,:-2],embed[:,1:-1],embed[:,2:],),dim=-1)
-        embed = self.trimlp(embedtrigram )
-        from modeling_attn_mask_utils import AttentionMaskConverter, _prepare_4d_causal_attention_mask
-        batch_size, seq_length = embed.shape[:2]
-        attention_mask = _prepare_4d_causal_attention_mask(
-                         attention_mask[:,:-2], (batch_size, seq_length), embed, 0
-                    )
-        attention_mask  = attention_mask.to(self.base_model.device)
-        # embedtrigram = torch.cat((embed[:,:-2],embed[:,1:-1],embed[:,2:]),dim=-1)
-        #for  i in self.fast_layer :      
-        embed = self.fast_layer1(embed ,attention_mask = attention_mask)
-        embed = self.fast_layer2(embed[0] ,attention_mask = attention_mask)
-        embed = self.fast_layer3(embed[0] ,attention_mask = attention_mask)
-        embed = self.fast_layer4(embed[0] ,attention_mask = attention_mask)
-        embed = embed[0]
-        loss_fct = torch.nn.MSELoss(size_average=None, reduce=None, reduction='mean')
-        hsloss =loss_fct( outputs[0][:,2:].clone(),embed[:,:])
-        embed3 = torch.cat((outputs[0][:,1:-1],embed[:,:]),dim=-1)#output2[0][:,-seq_length+2:-1]
-        medusa_logits = []
-        # TODO: Consider parallelizing this loop for efficiency?
-        for i in range(self.medusa):
-            #######修改后输出######
-            medusa_logits.append(self.medusa_head[i](embed3.unsqueeze(0)))#self.medusa_head[i]embed3.unsqueeze(0)(outputs[0]))#hidden_states[i*4].clone()))gruout.to(self.base_model.dtype)
-            ######原输出######
-            #medusa_logits.append(self.medusa_head[i]((outputs[0].clone())))
-        # if output_orig:
-        #     return torch.stack(medusa_logits, dim=0), outputs, orig
-        if output_orig:
-            return torch.stack(medusa_logits, dim=0), outputs, orig
-        return {"logits":torch.stack(medusa_logits, dim=0),"hsloss":hsloss}
     def medusa_generate(
         self,
         input_ids,
