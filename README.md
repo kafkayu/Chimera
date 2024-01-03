@@ -1,8 +1,12 @@
 # fastlayer-llm-interference
+
 this respository is aimed at speeding up  llm interference
+
 ## environment
 transformers
+
 pytorch
+
 dataset
 
 ## training
@@ -21,7 +25,7 @@ CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./medusa/Medusa/medusa/trai
     --save_strategy "steps" \
     --save_steps 200 \
     --save_total_limit 2 \
-    --learning_rate 1e-4 \
+    --learning_rate 2e-4 \
     --weight_decay 0.0 \
     --warmup_ratio 0.01 \
     --lr_scheduler_type "cosine" \
@@ -33,6 +37,20 @@ CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./medusa/Medusa/medusa/trai
 ```
 
 ## evaluate
+--1.3 new code--
+medusa/train/interference.ipynb is an easy evaluation for the fastlayer model.
+
+input can be  any prompts , output is the accuracy of next_next token.
+
+for example, 
+
+input is "how are you? assitant:"
+
+model will give 2 token,"I am"
+
+we can calculate the prediction accuracy of the next_next token such as "am" in this example
+
+
 
 ## theory
-our method is aimed at speeding up the interference of llm by means of fastlayer,which is a special structure to help the model get the n-gram. As we all know the most of llm is based on the atuoregressive model, we have to admit a fact that this kind  of structure caused the low efficiency of some special tasks ,such as Generative tasks.  
+our method is aimed at speeding up the interference of llm by means of fastlayer,which is a special structure to help the model get the n-gram. As we all know the most of llm is based on the atuoregressive model, we have to admit a fact that this kind  of structure caused the low efficiency of some special tasks ,such as Generative tasks.  Speculative decoding is a good idea by making good use of the paralism of llm.However , there is a still difficult problem how we can get the n-gram with the minist cost.In the fastlayer model,we use the trigram and extended transformer to assit the big llm to predict more token with the least cost.Meanwhile,we provide a new method to evaluate the speculative token which can meet the demand of greedy search and beam search. 
