@@ -1,8 +1,12 @@
 # fastlayer-llm-interference
+
 this respository is aimed at speeding up  llm interference
+
 ## environment
 transformers
+
 pytorch
+
 dataset
 
 ## training
@@ -35,11 +39,17 @@ CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./medusa/Medusa/medusa/trai
 ## evaluate
 --1.3 new code--
 interference.ipynb is a easy evaluation for the fastlayer model.
+
 input can be  any prompts , output is the accuracy of next_next token.
+
 for example, 
+
 input is "how are you? assitant:"
+
 model will give 2 token,"I am"
+
 we can calculate the prediction accuracy of the next_next token such as "am" in this example
+
 
 
 ## theory
