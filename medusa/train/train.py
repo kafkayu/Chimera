@@ -189,15 +189,10 @@ class CustomizedTrainer(Trainer):
         log = {}
         #logits = torch.clamp(logits, min=1e-7, max=100 - 1e-7)
         for i in range(medusa):
-            #########修改后#######
-            # medusa_logits = logits[i, :, : -1].contiguous()
-            #import pdb;pdb.set_trace()
-            # medusa_labels = labels[...,  2:].contiguous()
-            ######原medusa#########
-            
+
             medusa_logits = logits[i, :, :-1 ].contiguous()
             
-            medusa_labels = labels[...,  2:].contiguous()
+            medusa_labels = labels[...,  3:].contiguous()
             medusa_logits = medusa_logits.view(-1, logits.shape[-1])
             medusa_labels = medusa_labels.view(-1)
             
@@ -216,18 +211,32 @@ class CustomizedTrainer(Trainer):
                 topk = topk[not_ignore]
                 correct = topk.eq(medusa_labels.unsqueeze(-1)).any(-1)
                 log[f"medusa{i}_top{k}"] = correct.float().mean().item()
-        
-            
             log[f"medusa{i}_loss"] = loss_i.item()
-            # if model.training == False :
-            #     logeval  = {}
-            #     for k in range(1, 6):
-            #         logeval[f"eval_medusa{0}_top{k}"] = log[f"medusa{0}_top{k}"]
-            #     logeval[f"eval_medusa{0}_loss"] = log[f"medusa{0}_loss"]
-                #self.log(logeval)
-            #log[f"medusa{i}_loss"] = loss_i_7.item()
+        #########算i+2的准确率
+        medusa_logits = logits[1, :, 1:-1 ].contiguous()
+            
+        medusa_labels = labels[...,  4:].contiguous()
+        medusa_logits = medusa_logits.view(-1, logits.shape[-1])
+        medusa_labels = medusa_labels.view(-1)
+        
+        medusa_labels = medusa_labels.to(medusa_logits.device)
+        
+        #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=100 - 1e-7)
+       
+        loss_i = loss_fct(medusa_logits, medusa_labels)
+        not_ignore = medusa_labels.ne(IGNORE_TOKEN_ID)
+        medusa_labels = medusa_labels[not_ignore]
+
+        # Add top-k accuracy
+        for k in range(1, 6):
+            _, topk = medusa_logits.topk(k, dim=-1)
+            topk = topk[not_ignore]
+            correct = topk.eq(medusa_labels.unsqueeze(-1)).any(-1)
+            log[f"medusa{1}_top{k}"] = correct.float().mean().item()
+        log[f"medusa{1}_loss"] = loss_i.item()
+        
         self.log(log)
-        return (logits1['hsloss'], logits) if return_outputs else logits1['hsloss']
+        return (loss+logits1['hsloss'], logits) if return_outputs else loss+logits1['hsloss']
    
 
 @dataclass
@@ -460,9 +469,9 @@ def compute_metrics(pred):
         #print(labels.shape)
 
         #import pdb;pdb.set_trace()
-        medusa_logits = logits[:,:2046 ].contiguous()
+        medusa_logits = logits[0, :, :-1 ].contiguous()
         #import pdb;pdb.set_trace()     
-        medusa_labels = labels[...,2:].contiguous()
+        medusa_labels = labels[...,3:].contiguous()
         medusa_logits = medusa_logits.view(-1, logits.shape[-1])
         medusa_labels = medusa_labels.view(-1)
         
@@ -486,6 +495,32 @@ def compute_metrics(pred):
         
         log[f"eval_medusa{0}_loss"] = loss_i.item()
 
+   
+        medusa_logits = logits[1, :, 1: -1].contiguous()
+        #import pdb;pdb.set_trace()     
+        medusa_labels = labels[...,4:].contiguous()
+        medusa_logits = medusa_logits.view(-1, logits.shape[-1])
+        medusa_labels = medusa_labels.view(-1)
+        
+        medusa_labels = medusa_labels.to(medusa_logits.device)
+        #import pdb;pdb.set_trace()
+        #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=1 - 1e-7)
+        #import pdb;pdb.set_trace()
+        loss_i = loss_fct(medusa_logits, medusa_labels)
+        loss += loss_i
+        not_ignore = medusa_labels.ne(IGNORE_TOKEN_ID)
+        medusa_labels = medusa_labels[not_ignore]
+
+        # Add top-k accuracy
+        for k in range(1, 6):
+            _, topk = medusa_logits.topk(k, dim=-1)
+            topk = topk[not_ignore]
+            correct = topk.eq(medusa_labels.unsqueeze(-1)).any(-1)
+            log[f"eval_medusa{1}_top{k}"] = correct.float().mean().item()
+            #res[f"medusa{i}_top{k}"] = correct.float().mean().item()
+    
+        
+        log[f"eval_medusa{1}_loss"] = loss_i.item()
 
 
         #self.log(log)
