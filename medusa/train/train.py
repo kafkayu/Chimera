@@ -127,7 +127,7 @@ class CustomizedTrainer(Trainer):
                     if isinstance(outputs, dict):
                         logits = tuple(v for k, v in outputs.items() if k not in ignore_keys + ["loss"])
                     else:
-                        logits = outputs[:][0]
+                        logits = outputs[:][:]
                     #import pdb;pdb.set_trace()   
                 else:
                     loss = None
@@ -146,8 +146,9 @@ class CustomizedTrainer(Trainer):
             return (loss, None, None)
 
         logits = nested_detach(logits)
-        if len(logits) == 1:
-            logits = logits[0]
+        # if len(logits) == 1:
+        #     logits = logits[0]
+        logits =logits.unsqueeze(0)
         #import pdb;pdb.set_trace()
         return (loss, logits, labels)
     # def save_model(self, output_dir=None, _internal_call=False):
@@ -236,7 +237,8 @@ class CustomizedTrainer(Trainer):
         log[f"medusa{1}_loss"] = loss_i.item()
         
         self.log(log)
-        return (loss+logits1['hsloss'], logits) if return_outputs else loss+logits1['hsloss']
+        #import pdb;pdb.set_trace();
+        return (loss+logits1['hsloss'], logits1["logits"]) if return_outputs else loss+logits1['hsloss']
    
 
 @dataclass
@@ -469,7 +471,7 @@ def compute_metrics(pred):
         #print(labels.shape)
 
         #import pdb;pdb.set_trace()
-        medusa_logits = logits[0, :, :-1 ].contiguous()
+        medusa_logits = logits[ :,0,:,:-1  ].contiguous()
         #import pdb;pdb.set_trace()     
         medusa_labels = labels[...,3:].contiguous()
         medusa_logits = medusa_logits.view(-1, logits.shape[-1])
@@ -496,7 +498,7 @@ def compute_metrics(pred):
         log[f"eval_medusa{0}_loss"] = loss_i.item()
 
    
-        medusa_logits = logits[1, :, 1: -1].contiguous()
+        medusa_logits = logits[:,1,:,1:-1 ].contiguous()
         #import pdb;pdb.set_trace()     
         medusa_labels = labels[...,4:].contiguous()
         medusa_logits = medusa_logits.view(-1, logits.shape[-1])
