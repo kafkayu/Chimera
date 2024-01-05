@@ -23,6 +23,10 @@ import math
 import pathlib
 from typing import Dict, Optional, Sequence
 
+import wandb
+
+wandb.login(key="6224ac7517be176065dbe00432983a2ef90fa010")
+
 import numpy as np
 import torch
 from torch import nn
@@ -36,10 +40,12 @@ from fastchat.model.model_adapter import get_conversation_template
 from torch.nn import CrossEntropyLoss,MSELoss
 from torch.nn import functional as F
 import os
-os.environ['CUDA_VISIBLE_DEVICES']='3'
-from medusa.model.medusa_model import MedusaModel, MedusaConfig,SingleMedusa
+
+from medusa.model.medusa_model import MedusaModel, MedusaConfig, SingleMedusa
 import torch.nn.functional as F
 IGNORE_TOKEN_ID = LabelSmoother.ignore_index
+
+
 
 
 # Customized for training Medusa heads
@@ -128,7 +134,7 @@ class CustomizedTrainer(Trainer):
                         logits = tuple(v for k, v in outputs.items() if k not in ignore_keys + ["loss"])
                     else:
                         logits = outputs[:][:]
-                    #import pdb;pdb.set_trace()   
+                    #import pdb;pdb.set_trace()
                 else:
                     loss = None
                     with self.compute_loss_context_manager():
@@ -156,7 +162,7 @@ class CustomizedTrainer(Trainer):
     #     # output_dir = self.args.output_dir
     #     # 创建输出目录
     #     os.makedirs(output_dir, exist_ok=True)
- 
+
     #     # 保存训练参数
     #     torch.save(
     #     self.model.trimlp.state_dict(),
@@ -169,19 +175,19 @@ class CustomizedTrainer(Trainer):
     #     #     k: v.to("cpu") for k, v in self.model.named_parameters() if v.requires_grad
     #     # }
     #     torch.save(self.model.medusa_head.state_dict(), os.path.join(output_dir, "medusa_head.pt"))
-        
+
     def compute_loss(self, model, inputs, return_outputs=False):
         # DDP will give us model.module
         if hasattr(model, "module"):
             medusa = model.module.medusa
         else:
             medusa = model.medusa
-    
+
         logits1 = model(
             input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"]
         )
         logits =logits1["logits"]
-        
+
         labels = inputs["labels"]
         #import pdb;pdb.set_trace()
         # Shift so that tokens < n predict n
@@ -192,15 +198,15 @@ class CustomizedTrainer(Trainer):
         for i in range(medusa):
 
             medusa_logits = logits[i, :, :-1 ].contiguous()
-            
+
             medusa_labels = labels[...,  3:].contiguous()
             medusa_logits = medusa_logits.view(-1, logits.shape[-1])
             medusa_labels = medusa_labels.view(-1)
-            
+
             medusa_labels = medusa_labels.to(medusa_logits.device)
-            
+
             #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=100 - 1e-7)
-           
+
             loss_i = loss_fct(medusa_logits, medusa_labels)
             loss += loss_i
             not_ignore = medusa_labels.ne(IGNORE_TOKEN_ID)
@@ -215,15 +221,15 @@ class CustomizedTrainer(Trainer):
             log[f"medusa{i}_loss"] = loss_i.item()
         #########算i+2的准确率
         medusa_logits = logits[1, :, 1:-1 ].contiguous()
-            
+
         medusa_labels = labels[...,  4:].contiguous()
         medusa_logits = medusa_logits.view(-1, logits.shape[-1])
         medusa_labels = medusa_labels.view(-1)
-        
+
         medusa_labels = medusa_labels.to(medusa_logits.device)
-        
+
         #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=100 - 1e-7)
-       
+
         loss_i = loss_fct(medusa_logits, medusa_labels)
         not_ignore = medusa_labels.ne(IGNORE_TOKEN_ID)
         medusa_labels = medusa_labels[not_ignore]
@@ -235,11 +241,11 @@ class CustomizedTrainer(Trainer):
             correct = topk.eq(medusa_labels.unsqueeze(-1)).any(-1)
             log[f"medusa{1}_top{k}"] = correct.float().mean().item()
         log[f"medusa{1}_loss"] = loss_i.item()
-        
+
         self.log(log)
         #import pdb;pdb.set_trace();
         return (loss+logits1['hsloss'], logits1["logits"]) if return_outputs else loss+logits1['hsloss']
-   
+
 
 @dataclass
 class ModelArguments:
@@ -472,11 +478,11 @@ def compute_metrics(pred):
 
         #import pdb;pdb.set_trace()
         medusa_logits = logits[ :,0,:,:-1  ].contiguous()
-        #import pdb;pdb.set_trace()     
+        #import pdb;pdb.set_trace()
         medusa_labels = labels[...,3:].contiguous()
         medusa_logits = medusa_logits.view(-1, logits.shape[-1])
         medusa_labels = medusa_labels.view(-1)
-        
+
         medusa_labels = medusa_labels.to(medusa_logits.device)
         #import pdb;pdb.set_trace()
         #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=1 - 1e-7)
@@ -493,17 +499,17 @@ def compute_metrics(pred):
             correct = topk.eq(medusa_labels.unsqueeze(-1)).any(-1)
             log[f"eval_medusa{0}_top{k}"] = correct.float().mean().item()
             #res[f"medusa{i}_top{k}"] = correct.float().mean().item()
-    
-        
+
+
         log[f"eval_medusa{0}_loss"] = loss_i.item()
 
-   
+
         medusa_logits = logits[:,1,:,1:-1 ].contiguous()
-        #import pdb;pdb.set_trace()     
+        #import pdb;pdb.set_trace()
         medusa_labels = labels[...,4:].contiguous()
         medusa_logits = medusa_logits.view(-1, logits.shape[-1])
         medusa_labels = medusa_labels.view(-1)
-        
+
         medusa_labels = medusa_labels.to(medusa_logits.device)
         #import pdb;pdb.set_trace()
         #medusa_logits = torch.clamp(medusa_logits, min=1e-7, max=1 - 1e-7)
@@ -520,8 +526,8 @@ def compute_metrics(pred):
             correct = topk.eq(medusa_labels.unsqueeze(-1)).any(-1)
             log[f"eval_medusa{1}_top{k}"] = correct.float().mean().item()
             #res[f"medusa{i}_top{k}"] = correct.float().mean().item()
-    
-        
+
+
         log[f"eval_medusa{1}_loss"] = loss_i.item()
 
 
@@ -574,7 +580,7 @@ def train():
     ###########加载transformer############
     import copy
     #fast_Layer = copy.deepcopy(model.model.layers[-1])
-    
+
     #############********加载旧模型头*******###########
     # Add Medusa heads
     medusa_lm_head = MedusaModel(
@@ -642,7 +648,7 @@ def train():
     # head = torch.load('./idea5_3gram_4fastlayer_t1_skipbert_teacherstudent_medusa_mlp_vicuna-7b-v1.3_medusa_1_lr_0.0002_layers_1/medusa_lm_head.pt')
     # medusa_lm_head.medusa_head.load_state_dict(head )
 
-    
+
     # Save Medusa config
     medusa_config.save_pretrained(training_args.output_dir)
 
