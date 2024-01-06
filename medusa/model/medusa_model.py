@@ -121,8 +121,8 @@ class MedusaModel(nn.Module):
         self.medusa_head = nn.ModuleList(
             [
                 nn.Sequential(
-                    *([ResBlock(self.hidden_size)] * medusa_num_layers),
-                    nn.Linear(self.hidden_size, self.vocab_size, bias=False),
+                    *([ResBlock(self.hidden_size*2)] * medusa_num_layers),
+                    nn.Linear(self.hidden_size*2, self.vocab_size, bias=False),
                 )
                 for _ in range(medusa_num_heads)
             ]
@@ -134,11 +134,7 @@ class MedusaModel(nn.Module):
                     *([ResBlock(self.hidden_size*3)] ),
                     nn.Linear(self.hidden_size*3, self.hidden_size, bias=False),
                 )#copy.deepcopy(base_model.model.layers[0])
-        # self.fast_layer1 = nn.Sequential(copy.deepcopy(base_model.model.layers[0]),
-        #                                  copy.deepcopy(base_model.model.layers[4]),
-        #                                  copy.deepcopy(base_model.model.layers[-4]),
-        #                                   copy.deepcopy(base_model.model.layers[-1])
-        #                                 )
+
         newconfig = base_model.config
         newconfig.hidden_size = newconfig.hidden_size*2
         self.fast_layer1 = nn.Sequential(
@@ -147,10 +143,7 @@ class MedusaModel(nn.Module):
                                          copy.deepcopy(base_model.model.layers[-4]),
                                           copy.deepcopy(base_model.model.layers[-1])
                                         )
-        self.fastoutput = nn.Sequential(
-                    *([ResBlock(self.hidden_size*2)] ),
-                    nn.Linear(self.hidden_size*2, self.hidden_size, bias=False),
-                )
+
 
        # nn.Sequential()
         for param in self.fast_layer1.parameters():
@@ -159,15 +152,14 @@ class MedusaModel(nn.Module):
         self.medusa_head.to(self.base_model.dtype).to(self.base_model.device)
         self.fast_layer1.to(self.base_model.dtype).to(self.base_model.device)
         self.trimlp.to(self.base_model.dtype).to(self.base_model.device)
-        self.fastoutput.to(self.base_model.dtype).to(self.base_model.device)
+        #self.fastoutput.to(self.base_model.dtype).to(self.base_model.device)
 
         # for param in self.fast_layer.parameters():
         #     param.requires_grad = True
         for i in range(medusa_num_heads):
             # Initialize the weights of each medusa_head using the base model's weights
             #self.medusa_head[i][-1].weight.data[:] = base_model.lm_head.weight.data[:]
-            self.medusa_head[i][-1].weight.data[:]=base_model.lm_head.weight.data
-            #torch.cat((base_model.lm_head.weight.data,base_model.lm_head.weight.data),dim=-1)
+            self.medusa_head[i][-1].weight.data[:]=torch.cat((base_model.lm_head.weight.data,base_model.lm_head.weight.data),dim=-1)
             #torch.cat((base_model.lm_head.weight.data),dim=-1)#torch.cat((base_model.lm_head.weight.data,base_model.lm_head.weight.data),dim=-1),base_model.lm_head.weight.data ,base_model.lm_head.weight.data
             #,base_model.lm_head.weight.data
     def get_tokenizer(self):
@@ -327,8 +319,8 @@ class MedusaModel(nn.Module):
         for i in self.fast_layer1:
             embed =    i(embed,attention_mask = attention_mask)
             embed =    embed[0]
-        predict_layerN = torch.cat((embed,outputs[0][:,:-1]),dim=-1)
-        predict_layerN  = self.fastoutput(predict_layerN)
+        
+        #predict_layerN  = self.fastoutput(predict_layerN)
         #import pdb;pdb.set_trace();
         # output3 = self.fast_layer3(output3[0]  ,attention_mask = attention_mask)
         # output3 = self.fast_layer4(output3[0]  ,attention_mask = attention_mask)
@@ -407,15 +399,15 @@ class MedusaModel(nn.Module):
         loss_fct = torch.nn.MSELoss(size_average=None, reduce=None, reduction='mean')
         #import pdb;
         #pdb.set_trace();
-        hsloss =loss_fct( outputs[0][:,2:].clone(),predict_layerN[:,1:])  
+        hsloss =loss_fct( outputs[0][:,2:].clone(),embed[:,1:])  
         ###############################################
-        
+        predict_layerN = torch.cat((embed,outputs[0][:,:-1]),dim=-1)
         #embed3 = torch.cat((outputs[0][:,1:-2],embed[:,:-1]),dim=-1)#output2[0][:,-seq_length+2:-1]
         ####预测t2的准确率
         ####假设token是正确的#####然后把layerN的计算替换为fastlayerN
         
         predict_layerN2 = torch.cat((embed[:,1:],embed[:,:-1]),dim=-1)
-        predict_layerN2 = self.fastoutput(predict_layerN2)
+        
 
         
         # TODO: Consider parallelizing this loop for efficiency?
