@@ -29,8 +29,9 @@ torchrun --nproc_per_node=1   medusa/train/train.py --model_name_or_path ../../.
     --medusa_num_layers 1
 ```
 1.6 
+
 | 任务| 负责人 | dll说明 | 详细说明|
-|-------|-------|-------|
+|-------|-------|-------|-------|
 | 跑7b多token结果 | 俞嘉鸿 | 1.6 20：00 结束| 得知预测多个token的准确率|
 | 13b结果测试 | zihao-wang | 等待nvidia回复后 |得知预测多个token的准确率|
 | eagle baseline 测试 | 庞千石 | 1.7晚上19：00 |查看eagle 1b,7b,13b的加速效果，eagle 预测多个token的准确率|
