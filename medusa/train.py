@@ -22,7 +22,9 @@ import json
 import math
 import pathlib
 from typing import Dict, Optional, Sequence
+import wandb
 
+wandb.login(key="6224ac7517be176065dbe00432983a2ef90fa010")
 import numpy as np
 import torch
 from torch import nn

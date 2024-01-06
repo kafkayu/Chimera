@@ -3,11 +3,25 @@
 this respository is aimed at speeding up  llm interference
 
 ## environment
+python 3.10
+
 transformers
 
-pytorch
+pytorch 
 
-dataset
+dataset 2.13.1
+
+huggingface_hub     0.16.4 
+
+fschat 0.2.28
+
+
+## model
+vicuna
+```
+git lfs install
+git clone https://huggingface.co/lmsys/vicuna-13b-v1.5
+```
 
 ## training
 this is a sample
