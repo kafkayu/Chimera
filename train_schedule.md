@@ -75,4 +75,8 @@ torchrun --nproc_per_node=1   medusa/train/train.py --model_name_or_path ../../.
 查看eagle 1b,7b,13b的加速效果
 eagle top5 token的预测准确率
 
-
+1.8 
+| 任务| 负责人 | dll说明 | 详细说明|
+|-------|-------|-------|-------|
+| 跑7b多token结果 | 俞嘉鸿 | 1.9 24：00 结束| 已经确定好模型架构，现在需要编写多个token预测加速代码，并且需要再次训练7b结构模型|
+| eagle baseline 测试 | 庞千石 | 1.9晚上19：00 |70b效果简单检测为3x，查看eagle 1b,7b,13b的加速效果，eagle 预测多个token的准确率|
