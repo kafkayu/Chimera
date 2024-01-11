@@ -82,7 +82,7 @@ eagle top5 token的预测准确率
 | eagle baseline 测试 | 庞千石 | 1.9晚上19：00 |70b效果简单检测为3x，查看eagle 1b,7b,13b的加速效果，eagle 预测多个token的准确率|
 
 1.9
-| 任务| 负责人 | dll说明 | 详细说明|
+| 任务| 负责人 | dll说明 | 详细说明| 
 |-------|-------|-------|-------|
 |1.模型加速推理验证代码 | 俞嘉鸿 | 1.10 24：00 结束| 已经确定好模型架构，现在需要编写多个token预测加速代码|
 |2. lookahead baseline 测试 | 庞千石 | 1.11晚上19：00 |[lookahead项目链接](https://lmsys.org/blog/2023-11-21-lookahead-decoding/?utm_source=talkingdev.uwl.me)|
@@ -92,4 +92,14 @@ eagle top5 token的预测准确率
 |6.trigram消融 | 俞嘉鸿 | 1.16 24：00 结束| 要求:去掉trigram后是否会影响性能，影响如何|
 |7.13b模型验证效果 | zihaowang | 1.16 24：00 结束| 要求:在量化实现可以在32G装下模型后，使其可以train13b模型|
 
+1.11
+| 任务| 负责人 | dll说明 | 详细说明| 进度|
+|-------|-------|-------|-------|-------|
+|1.模型加速推理验证代码 | 俞嘉鸿 | 1.11 24：00 结束| 已经确定好模型架构，现在需要编写多个token预测加速代码|编写了greedy search 代码，加速大约为2.5x，编写beamsearch代码中|
+|2. lookahead baseline 测试 | 庞千石 | 1.11晚上19：00 |[lookahead项目链接](https://lmsys.org/blog/2023-11-21-lookahead-decoding/?utm_source=talkingdev.uwl.me)||
+|3. vicuna-7b数据集 生成| 庞千石 | 1.11晚上19：00 |使用vicuna-7b，根据question，max_length设置为2048，greedysearch产生一批新的模型输出||
+|4.模型量化 | 俞嘉鸿 | 1.12 24：00 结束| 要求:13b模型本体量化使其可以在32G或者48G显存的gpu上进行运行|修改模型并进行量化|正在尝试将模型进行量化，量化为int8减少显存占用|
+|5.早期退出验证 | 俞嘉鸿 | 1.12 24：00 结束| 要求:13b模型本体量化使其可以在32G或者48G显存的gpu上进行运行||
+|6.trigram消融 | 俞嘉鸿 | 1.16 24：00 结束| 要求:去掉trigram后是否会影响性能，影响如何|去掉trigram 后top5 acc大约降到了0.87，原来模型有0.9左右，下降了三个点|
+|7.13b模型验证效果 | zihaowang | 1.16 24：00 结束| 要求:在量化实现可以在32G装下模型后，使其可以train13b模型||
 
