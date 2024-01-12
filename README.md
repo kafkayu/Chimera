@@ -1,6 +1,6 @@
-# fastlayer-llm-interference
+# Chimera fastlayer-llm-interference
 
-this respository is aimed at speeding up  llm interference
+this respository is aimed at speeding up  llm interference.
 
 ## environment
 python 3.10
@@ -15,9 +15,17 @@ huggingface_hub     0.16.4
 
 fschat 0.2.28
 
+## datasets
+Sharedgpt
+
+
 
 ## model
-vicuna
+vicuna7b/13b
+```
+git lfs install
+git clone https://huggingface.co/lmsys/vicuna-13b-v1.5
+```
 ```
 git lfs install
 git clone https://huggingface.co/lmsys/vicuna-13b-v1.5
@@ -26,7 +34,8 @@ git clone https://huggingface.co/lmsys/vicuna-13b-v1.5
 ## training
 this is a sample
 ```
-CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./medusa/Medusa/medusa/train/train.py --model_name_or_path ../model/vicuna-7b-v1.3 \
+cd ./chimera
+CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./train.py --model_name_or_path ../model/vicuna-7b-v1.3 \
     --data_path ../data/ShareGPT_Vicuna_unfiltered/train.json \
     --eval_data_path  "../data/ShareGPT_Vicuna_unfiltered/small_test.json" \
     --output_dir 3gram_4fastlayer_1227 \
@@ -46,8 +55,8 @@ CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./medusa/Medusa/medusa/trai
     --logging_steps 1 \
     --model_max_length 1024 \
     --lazy_preprocess True \
-    --medusa_num_heads 1 \
-    --medusa_num_layers 1
+    --chimera_num_heads 1 \
+    --chimera_num_layers 1
 ```
 
 ## evaluate
