@@ -1,1 +1,0 @@
-{"train/medusa0_top1": NaN, "train/medusa0_top2": NaN, "train/medusa0_top3": NaN, "train/medusa0_top4": NaN, "train/medusa0_top5": NaN, "train/medusa0_loss": NaN, "train/global_step": 0, "_timestamp": 1701703882.4317446, "_runtime": 444.45274448394775, "_step": 278, "eval/loss": NaN, "eval/runtime": 16.9132, "eval/samples_per_second": 8.1, "eval/steps_per_second": 4.08}
