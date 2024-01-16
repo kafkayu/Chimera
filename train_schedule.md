@@ -105,6 +105,9 @@ eagle top5 token的预测准确率
 
 1.16
 注：实验使用基座模型：vicuna7b,13b,33b，llama 模型 7b、13b、30b
+medusa:[medusa项目](https://github.com/FasterDecoding/Medusa)
+lookahead:[lookahead]([lookahead项目链接](https://lmsys.org/blog/2023-11-21-lookahead-decoding/?utm_source=talkingdev.uwl.me)
+
 | 任务| 负责人 | dll说明 | 详细说明| 进度|
 |-------|-------|-------|-------|-------|
 |1.模型推理i+3,i+4验证 | 俞嘉鸿 | 1.18 24：00 结束| 编写早期退出和i+3预测权衡|跑实验确认|
