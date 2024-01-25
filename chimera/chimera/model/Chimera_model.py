@@ -11,11 +11,14 @@ from huggingface_hub import hf_hub_download
 import copy
 from torch.nn import CrossEntropyLoss,MSELoss
 from transformers.models.llama.modeling_llama import  LlamaModel,LlamaDecoderLayer
-
+from .choices import *
 from .modeling_attn_mask_utils import AttentionMaskConverter, _prepare_4d_causal_attention_mask
 import wandb
-
+from .cnet import Model
 wandb.login(key="6224ac7517be176065dbe00432983a2ef90fa010")#######wandb key
+# Import the summary writer 
+from torch.utils.tensorboard import SummaryWriter# Create an instance of the object 
+writer = SummaryWriter()
        
 class ChimeraConfig(PretrainedConfig):
     def __init__(
@@ -113,9 +116,11 @@ class ChimeraModel(nn.Module):
                     *([ResBlock(self.hidden_size*3)] ),
                     nn.Linear(self.hidden_size*3, self.hidden_size, bias=False),
                 )
-        
+        config = copy.deepcopy(self.base_model.config)
+        config.num_hidden_layers = 1
+
         self.fast_layer1 = nn.Sequential(
-                                         copy.deepcopy(base_model.model.layers[-1]),
+                                        LlamaDecoderLayer(config)
                                         # copy.deepcopy(base_model.model.layers[-1])
                                         )
 
