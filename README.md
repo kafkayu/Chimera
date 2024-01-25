@@ -5,9 +5,9 @@ this respository is aimed at speeding up  llm interference.
 ## environment
 python 3.10
 
-transformers
+transformers 4.31.0
 
-pytorch 
+pytorch 2.1.2
 
 dataset 2.13.1
 
@@ -33,13 +33,16 @@ git clone https://huggingface.co/lmsys/vicuna-13b-v1.5
 
 ## training
 this is a sample
+
+if you want to use wandb to watch the accuracy of prediction, please use your own wandb key and change the wandb.init("**your key**") in the train.py
+
 ```
 cd ./chimera
-CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./train.py --model_name_or_path ../model/vicuna-7b-v1.3 \
+torchrun --nproc_per_node=1   ./train.py --model_name_or_path ../model/vicuna-7b-v1.3 \
     --data_path ../data/ShareGPT_Vicuna_unfiltered/train.json \
     --eval_data_path  "../data/ShareGPT_Vicuna_unfiltered/small_test.json" \
-    --output_dir 3gram_4fastlayer_1227 \
-    --num_train_epochs 1 \
+    --output_dir chimera_0125 \
+    --num_train_epochs 2 \
     --per_device_train_batch_size 4 \
     --per_device_eval_batch_size 4\
     --gradient_accumulation_steps 8 \
@@ -55,7 +58,7 @@ CUDA_VISIBLE_DEVICES=3 torchrun --nproc_per_node=1   ./train.py --model_name_or_
     --logging_steps 1 \
     --model_max_length 1024 \
     --lazy_preprocess True \
-    --chimera_num_heads 1 \
+    --chimera_num_heads 4 \
     --chimera_num_layers 1
 ```
 
