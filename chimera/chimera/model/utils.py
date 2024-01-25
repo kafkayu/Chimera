@@ -3,7 +3,28 @@ import random
 
 import torch
 
-
+def repeat_kv(past_key_values,batch_size):
+    newkv = []
+    for i in past_key_values:
+        newk = []
+        for j in i:
+            tmp = j
+            newk.append(tmp.repeat(batch_size,1,1,1))
+        newkv.append(tuple(newk))
+    return newkv
+def get_kv(past_key_values,batch_index,aclength,totallen):
+    newkv = []
+    for i in past_key_values:
+        newk = []
+        for j in i:
+            tmp = j
+            if aclength-totallen == 0 :
+                newk.append(tmp[batch_index].unsqueeze(0))
+            else:
+                newk.append(tmp[batch_index,:,:aclength -totallen].unsqueeze(0))
+            newk=newk
+        newkv.append(tuple(newk))
+    return newkv
 
 
 TOPK = 10  # topk for sparse tree

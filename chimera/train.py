@@ -16,7 +16,8 @@
 
 # Adapted from: https://github.com/lm-sys/FastChat/blob/main/fastchat/train/train.py
 
-
+# import os
+# os.environ['CUDA_VISIBLE_DEVICES'] = '1,3'
 from dataclasses import dataclass, field
 import json
 import math
@@ -153,24 +154,33 @@ class CustomizedTrainer(Trainer):
         #logits =logits.unsqueeze(0)
         #import pdb;pdb.set_trace()
         return (loss, logits, labels)
-    # def save_model(self, output_dir=None, _internal_call=False):
-    #     # import pdb;pdb.set_trace()
-    #     # output_dir = self.args.output_dir
-    #     # 创建输出目录
-    #     os.makedirs(output_dir, exist_ok=True)
+    def save_model(self, output_dir=None, _internal_call=False):
+        # import pdb;pdb.set_trace()
+        # output_dir = self.args.output_dir
+        # 创建输出目录
+        os.makedirs(output_dir, exist_ok=True)
  
-    #     # 保存训练参数
-    #     torch.save(
-    #     self.model.trimlp.state_dict(),
-    #     os.path.join(output_dir, "chimera_lm_head.pt"),
-    #   )
-    #     torch.save(self.model.fast_layer1.state_dict(), os.path.join(output_dir, "fast_layer1.pt"))
-    #     torch.save(self.fastoutput.state_dict(),os.path.join(output_dir, "fastouput.pt"))
-    #     # # 保存有梯度变化的模型参数
-    #     # saved_params = {
-    #     #     k: v.to("cpu") for k, v in self.model.named_parameters() if v.requires_grad
-    #     # }
-    #     torch.save(self.model.chimera_head.state_dict(), os.path.join(output_dir, "chimera_head.pt"))
+        # 保存训练参数
+        torch.save(
+        self.model.trimlp.state_dict(),
+        os.path.join(output_dir, "trimlp.pt"),
+      )
+      #   torch.save(
+      #   self.model.trimlp2.state_dict(),
+      #   os.path.join(output_dir, "trimlp2.pt"),
+      # )
+      #   torch.save(
+      #   self.model.bimlp.state_dict(),
+      #   os.path.join(output_dir, "bimlp.pt"),
+      # )
+        # torch.save(self.model.fast_layer2.state_dict(), os.path.join(output_dir, "fast_layer2.pt"))
+        torch.save(self.model.fast_layer1.state_dict(), os.path.join(output_dir, "fast_layer1.pt"))
+        # torch.save(self.model.fast_layer0.state_dict(),os.path.join(output_dir, "fast_layer0.pt"))
+        # # 保存有梯度变化的模型参数
+        # saved_params = {
+        #     k: v.to("cpu") for k, v in self.model.named_parameters() if v.requires_grad
+        # }
+        torch.save(self.model.chimera_head.state_dict(), os.path.join(output_dir, "chimera_head.pt"))
         
     def compute_loss(self, model, inputs, return_outputs=False):
         # DDP will give us model.module
@@ -194,9 +204,9 @@ class CustomizedTrainer(Trainer):
         #logits = torch.clamp(logits, min=1e-7, max=100 - 1e-7)
         for i in range(chimera):
             
-            chimera_logits = logits[i, :, 2:-2 ].contiguous()
+            chimera_logits = logits[i, :, 1:-2-i ].contiguous()
             
-            chimera_labels = labels[...,  4:].contiguous()
+            chimera_labels = labels[...,  3+i:].contiguous()
             chimera_logits = chimera_logits.view(-1, logits.shape[-1])
             chimera_labels = chimera_labels.view(-1)        
             chimera_labels = chimera_labels.to(chimera_logits.device)      
@@ -204,7 +214,7 @@ class CustomizedTrainer(Trainer):
             #loss += loss_i
             not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
             chimera_labels = chimera_labels[not_ignore]
-
+            #import pdb;pdb.set_trace()
             # Add top-k accuracy
             for k in range(1, 6):
                 _, topk = chimera_logits.topk(k, dim=-1)
@@ -212,16 +222,17 @@ class CustomizedTrainer(Trainer):
                 correct = topk.eq(chimera_labels.unsqueeze(-1)).any(-1)
                 log[f"chimera{i}_top{k}"] = correct.float().mean().item()
             log[f"chimera{i}_loss"] = loss_i.item()
-
-            chimera_logits = logits[i, :, 2:-1 ].contiguous()
+            
+            chimera_logits = logits[i, :, 1:-1-i ].contiguous()
             chimera_logits = chimera_logits.view(-1, logits.shape[-1])
-            chimera_labels = labels2[...,  3:].contiguous()
+            chimera_labels = labels2[...,  2+i:].contiguous()
             chimera_labels = chimera_labels.view(-1)
             chimera_labels = chimera_labels.to(chimera_logits.device)
             loss_i = loss_fct(chimera_logits, chimera_labels)
             loss += loss_i
             not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
             chimera_labels = chimera_labels[not_ignore]
+            # import pdb;pdb.set_trace()
             for k in range(1, 6):
                 _, topk = chimera_logits.topk(k, dim=-1)
                 topk = topk[not_ignore]
@@ -234,7 +245,7 @@ class CustomizedTrainer(Trainer):
         
        
         self.log(log)
-        return (loss+logits1['hsloss'], logits1["logits"]) if return_outputs else loss+logits1['hsloss']
+        return (loss+logits1["hsloss"], logits1["logits"]) if return_outputs else loss+logits1["hsloss"]
    
 
 @dataclass
@@ -357,7 +368,7 @@ def preprocess(
             cur_len += turn_len
 
         target[cur_len:] = IGNORE_TOKEN_ID
-
+        #import pdb;pdb.set_trace()
         if False:  # Inspect and check the correctness of masking
             z = target.clone()
             z = torch.where(z == IGNORE_TOKEN_ID, tokenizer.unk_token_id, z)
@@ -455,50 +466,48 @@ def make_supervised_data_module(
 
 def compute_metrics(pred):
         logits,labels = pred
-        loss = 0
         log = {}
         loss_fct = CrossEntropyLoss()
 
         logits = torch.tensor(logits)
         labels = torch.tensor(labels)
         labels2 = torch.argmax(logits[ :,-1],dim=-1)
-
-        chimera_logits = logits[ :,0,2:-2  ].contiguous()   
-        chimera_labels = labels[...,4:].contiguous()
-        chimera_logits = chimera_logits.view(-1, logits.shape[-1])
-        chimera_labels = chimera_labels.view(-1)
-        
-        chimera_labels = chimera_labels.to(chimera_logits.device)
-        #import pdb;pdb.set_trace()
-        #chimera_logits = torch.clamp(chimera_logits, min=1e-7, max=1 - 1e-7)
-        #import pdb;pdb.set_trace()
-        loss_i = loss_fct(chimera_logits, chimera_labels)
-        loss += loss_i
-        not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
-        chimera_labels = chimera_labels[not_ignore]
-
-        # Add top-k accuracy
-        for k in range(1, 6):
-            _, topk = chimera_logits.topk(k, dim=-1)
-            topk = topk[not_ignore]
-            correct = topk.eq(chimera_labels.unsqueeze(-1)).any(-1)
-            log[f"eval_chimera{0}_top{k}"] = correct.float().mean().item()    
-        log[f"eval_chimera{0}_loss"] = loss_i.item()
-        ###########model_prediction
-        chimera_logits = logits[ :,0,2:-1  ].contiguous()  
-        chimera_logits = chimera_logits.view(-1, logits.shape[-1])
-        chimera_labels = labels2[...,  3:].contiguous()
-        chimera_labels = chimera_labels.view(-1)
-        chimera_labels = chimera_labels.to(chimera_logits.device)
-        loss_i = loss_fct(chimera_logits, chimera_labels)
-        not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
-        chimera_labels = chimera_labels[not_ignore]
-        for k in range(1, 6):
-            _, topk = chimera_logits.topk(k, dim=-1)
-            topk = topk[not_ignore]
-            correct = topk.eq(chimera_labels.unsqueeze(-1)).any(-1)
-            log[f"eval_chimera{0}_model_top{k}"] = correct.float().mean().item()
-        log[f"eval_chimera{0}_model_loss"] = loss_i.item()
+        for i in range(len(logits[ 0])-1):
+            chimera_logits = logits[ :,i,1:-2-i  ].contiguous()   
+            chimera_labels = labels[...,3+i:].contiguous()
+            chimera_logits = chimera_logits.view(-1, logits.shape[-1])
+            chimera_labels = chimera_labels.view(-1)
+            
+            chimera_labels = chimera_labels.to(chimera_logits.device)
+            #import pdb;pdb.set_trace()
+            #chimera_logits = torch.clamp(chimera_logits, min=1e-7, max=1 - 1e-7)
+            #import pdb;pdb.set_trace()
+            loss_i = loss_fct(chimera_logits, chimera_labels)
+            not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
+            chimera_labels = chimera_labels[not_ignore]
+    
+            # Add top-k accuracy
+            for k in range(1, 6):
+                _, topk = chimera_logits.topk(k, dim=-1)
+                topk = topk[not_ignore]
+                correct = topk.eq(chimera_labels.unsqueeze(-1)).any(-1)
+                log[f"eval_chimera{i}_top{k}"] = correct.float().mean().item()    
+            log[f"eval_chimera{i}_loss"] = loss_i.item()
+            ###########model_prediction
+            chimera_logits = logits[ :,i,1:-1-i  ].contiguous()  
+            chimera_logits = chimera_logits.view(-1, logits.shape[-1])
+            chimera_labels = labels2[...,  2+i:].contiguous()
+            chimera_labels = chimera_labels.view(-1)
+            chimera_labels = chimera_labels.to(chimera_logits.device)
+            loss_i = loss_fct(chimera_logits, chimera_labels)
+            not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
+            chimera_labels = chimera_labels[not_ignore]
+            for k in range(1, 6):
+                _, topk = chimera_logits.topk(k, dim=-1)
+                topk = topk[not_ignore]
+                correct = topk.eq(chimera_labels.unsqueeze(-1)).any(-1)
+                log[f"eval_chimera{i}_model_top{k}"] = correct.float().mean().item()
+            log[f"eval_chimera{i}_model_loss"] = loss_i.item()
 
 
         return log
@@ -508,8 +517,8 @@ def train():
     parser = transformers.HfArgumentParser(
         (ModelArguments, DataArguments, TrainingArguments)
     )
-    print(ModelArguments)
-    print(ModelArguments)
+    # print(ModelArguments)
+    # print(ModelArguments)
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
     local_rank =0 #training_args.local_rank
     
@@ -560,16 +569,21 @@ def train():
         chimera_num_layers=training_args.chimera_num_layers,
         base_model_name_or_path=model_args.model_name_or_path
     )
+    
     #######load pretrained model####
-    # state_name = 'chimera_2fastlayer_vicuna-7b-v1.3_lr_0.001'
-    # dict =torch.load(state_name)
+    chimera_lm_head = chimera_lm_head.load_chimera("chimera_1f_posthalf_finetune_chimera_mlp_vicuna-7b-v1.3_chimera_2_lr_2e-05_layers_1")
     # chimera_lm_head.load_state_dict(dict)
     # del dict
-    # torch.cuda.empty_cache()#清除无用变量
+    torch.cuda.empty_cache()#清除无用变量
     ########
     for param in chimera_lm_head.base_model.parameters():
         param.require_grad = False
-
+    # for  param in chimera_lm_head.trimlp.parameters():
+    #     param.require_grad = False
+    # for  param in chimera_lm_head.fast_layer0.parameters():
+    #     param.require_grad = False
+    # for  param in chimera_lm_head.fast_layer1.parameters():
+    #     param.require_grad = False
     training_args.output_dir = f"{training_args.output_dir}_chimera_mlp_{model_args.model_name_or_path.split('/')[-1]}_chimera_{training_args.chimera_num_heads}_lr_{training_args.learning_rate}_layers_{training_args.chimera_num_layers}"
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(
@@ -623,24 +637,40 @@ def train():
 
     # Save Chimera heads
     torch.save(
-        lm_head.state_dict(),
-        os.path.join(training_args.output_dir, "chimera_lm_head.pt"),
+        chimera_lm_head.chimera_head.state_dict(),
+        os.path.join(training_args.output_dir, "chimera_head.pt"),
     )
-
     torch.save(
         chimera_lm_head.trimlp.state_dict(),
         os.path.join(training_args.output_dir, "trimlp.pt"),
     )
+
+    # torch.save(
+    #     chimera_lm_head.trimlp2.state_dict(),
+    #     os.path.join(training_args.output_dir, "triml2.pt"),
+    # )
+    # torch.save(
+    #     chimera_lm_head.bimlp.state_dict(),
+    #     os.path.join(training_args.output_dir, "bimlp.pt"),
+    # )
+    # torch.save(
+    #     chimera_lm_head.bimlp.state_dict(),
+    #     os.path.join(training_args.output_dir, "bimlp.pt"),
+    # )
+    # torch.save(
+    #     chimera_lm_head.fast_layer0.state_dict(),
+    #     os.path.join(training_args.output_dir, "fast_layer0.pt"),
+    # )
     torch.save(
         chimera_lm_head.fast_layer1.state_dict(),
         os.path.join(training_args.output_dir, "fast_layer1.pt"),
     )
 
     #)
-    torch.save(
-            chimera_lm_head.fast_layer0.state_dict(),
-            os.path.join(training_args.output_dir, "fast_layer0.pt"),
-        )
+    # torch.save(
+    #         chimera_lm_head.fast_layer0.state_dict(),
+    #         os.path.join(training_args.output_dir, "fast_layer0.pt"),
+    #     )
 
 
 
