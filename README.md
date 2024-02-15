@@ -18,6 +18,8 @@ fschat 0.2.28
 ## datasets
 Sharedgpt
 
+
+##Chimera Weights
 |Base Model|Chimera on hugging Face|
 |-------|-------|
 |Vicuna-7b-v1.3|([anonymous6690/Chimera-Vicuna-7b-v1.3](https://huggingface.co/anonymous6690/Chimera-Vicuna-7b-v1.3)|
