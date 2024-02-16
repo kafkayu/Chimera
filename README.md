@@ -103,18 +103,7 @@ torchrun --nproc_per_node=1  ./chimera/train.py --model_name_or_path ../model/vi
 ```
 
 ## evaluate
---1.3 new code--
-medusa/train/interference.ipynb is an easy evaluation for the fastlayer model.
 
-input can be  any prompts , output is the accuracy of next_next token.
-
-for example, 
-
-input is "how are you? assitant:"
-
-model will give 2 token,"I am"
-
-we can calculate the prediction accuracy of the next_next token such as "am" in this example
 
 
 
