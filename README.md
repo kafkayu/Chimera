@@ -71,41 +71,8 @@ torchrun --nproc_per_node=1   ./train.py --model_name_or_path ../model/vicuna-7b
     --chimera_num_heads 4 \
     --chimera_num_layers 1
 ```
-### quantinization support 
 
-you can set  the parameters of **--load_in_4bit** or **--load_in_8bit** in the model quantinization
-
-It should be awared that the version of transformers must compatible with our requirement , you may need to change the init code of chimera model instead.
-```
-cd ./chimera
-torchrun --nproc_per_node=1  ./chimera/train.py --model_name_or_path ../model/vicuna-7b-v1.3 --load_in_4bit True\
-    --data_path ../data/ShareGPT_Vicuna_unfiltered/train.json \
-    --eval_data_path  "../data/ShareGPT_Vicuna_unfiltered/small_test3.json" \
-    --output_dir chimera_1f_posthalf_finetune\
-    --num_train_epochs 2 \
-    --per_device_train_batch_size 2 \
-    --per_device_eval_batch_size 2\
-    --gradient_accumulation_steps 4 \
-    --evaluation_strategy "steps" \
-    --eval_steps 50\
-    --save_strategy "steps" \
-    --save_steps 1000 \
-    --save_total_limit 1 \
-    --learning_rate 1e-4 \
-    --weight_decay 0.0 \
-    --warmup_ratio 0.05 \
-    --lr_scheduler_type "cosine" \
-    --logging_steps 1 \
-    --model_max_length 1024 \
-    --lazy_preprocess True \
-    --chimera_num_heads 4 \
-    --chimera_num_layers 1
-```
 
 ## evaluate
 
 
-
-
-## Theory
-our method is aimed at speeding up the interference of llm by means of fastlayer,which is a special structure to help the model get the n-gram. As we all know the most of llm is based on the atuoregressive model, we have to admit a fact that this kind  of structure caused the low efficiency of some special tasks ,such as Generative tasks.  Speculative decoding is a good idea by making good use of the paralism of llm.However , there is a still difficult problem how we can get the n-gram with the minist cost.In the fastlayer model,we use the trigram and extended transformer to assit the big llm to predict more token with the least cost.Meanwhile,we provide a new method to evaluate the speculative token which can meet the demand of greedy search and beam search. 
