@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from transformers import PreTrainedModel, PretrainedConfig
-#from .modeling_llama_kv import LlamaForCausalLM as KVLlamaForCausalLM
+from .modeling_llama_kv import LlamaForCausalLM as KVLlamaForCausalLM
 from transformers import AutoTokenizer ,AutoModelForCausalLM
 
 from .utils import *
@@ -14,11 +14,11 @@ from transformers.models.llama.modeling_llama import  LlamaModel,LlamaDecoderLay
 from .choices import *
 from .modeling_attn_mask_utils import AttentionMaskConverter, _prepare_4d_causal_attention_mask
 import wandb
-from .cnet import Model
+# from .cnet import Model
 wandb.login(key="6224ac7517be176065dbe00432983a2ef90fa010")#######wandb key
 # Import the summary writer 
-from torch.utils.tensorboard import SummaryWriter# Create an instance of the object 
-writer = SummaryWriter()
+# from torch.utils.tensorboard import SummaryWriter# Create an instance of the object 
+# writer = SummaryWriter()
        
 class ChimeraConfig(PretrainedConfig):
     def __init__(
@@ -121,12 +121,12 @@ class ChimeraModel(nn.Module):
 
         self.fast_layer1 = nn.Sequential(
                                         LlamaDecoderLayer(config)
-                                        # copy.deepcopy(base_model.model.layers[-1])
+                                       #copy.deepcopy(self.base_model.model.layers[0])
                                         )
 
 
-        for param in self.fast_layer1.parameters():
-            param.require_grad = True
+        # for param in self.fast_layer1.parameters():
+        #     param.require_grad = True
         self.chimera_head.to(self.base_model.dtype).to(self.base_model.device)
         self.fast_layer1.to(self.base_model.dtype).to(self.base_model.device)
         self.trimlp.to(self.base_model.dtype).to(self.base_model.device)
@@ -163,14 +163,14 @@ class ChimeraModel(nn.Module):
             ChimeraModel: A ChimeraModel instance loaded from the given path.
         """
         chimera_config = ChimeraConfig.from_pretrained(chimera_name_or_path)
-        base_model = AutoModelForCausalLM.from_pretrained(
-            chimera_config.base_model_name_or_path
-        )
-        #KVLlamaForCausalLM.from_pretrained(
-        #     chimera_config.base_model_name_or_path, **kwargs
+        # base_model = AutoModelForCausalLM.from_pretrained(
+        #     chimera_config.base_model_name_or_path
         # )
+        base_model = KVLlamaForCausalLM.from_pretrained(
+            chimera_config.base_model_name_or_path, **kwargs
+        )
         print("path",chimera_config.base_model_name_or_path)
-        model = cls(
+        model = Chimera_Model(
             base_model,
             chimera_config.chimera_num_heads,
             chimera_config.chimera_num_layers,
@@ -253,12 +253,12 @@ class ChimeraModel(nn.Module):
         #3.fast_layer1
         chimera_fast_layer1_path = os.path.join(chimera_name_or_path, "fast_layer1.pt")
         chimera_state_dict = torch.load(chimera_fast_layer1_path)
-        self.fast_layer1.load_state_dict(chimera_state_dict)
+        self.fast_layer1.load_state_dict(chimera_state_dict,strict=False)
         
         # ##4.chimera_head
-        # chimera_head_path = os.path.join(chimera_name_or_path, "chimera_head.pt")
-        # chimera_state_dict = torch.load(chimera_head_path)
-        # self.chimera_head.load_state_dict(chimera_state_dict)
+        chimera_head_path = os.path.join(chimera_name_or_path, "chimera_head.pt")
+        chimera_state_dict = torch.load(chimera_head_path)
+        self.chimera_head.load_state_dict(chimera_state_dict,strict=False)
         
         return self
     def forward(
@@ -286,7 +286,7 @@ class ChimeraModel(nn.Module):
             torch.Tensor: A tensor containing predictions from all Chimera heads.
             (Optional) Original predictions from the base model's LM head.
         """
-        
+        chimera_logits = []
         with torch.inference_mode():
             # Pass input through the base model
             outputs = self.base_model.model(
@@ -329,12 +329,12 @@ class ChimeraModel(nn.Module):
         mask_value=attention_mask[0,0,0,1].cpu()
         attention_mask2 =torch.full((seq_length-1, seq_length-1), mask_value) + torch.diag(torch.zeros(seq_length-1)+mask_value-1)
         attention_mask2 = attention_mask2.to(self.base_model.device)
-
+    
         
         attention_mask3 = torch.cat((attention_mask[0,0],attention_mask[0,0]),dim=-1)
         attention_mask3 = torch.cat((attention_mask3,attention_mask3),dim=-2).unsqueeze(0).unsqueeze(0)
         attention_mask3 = attention_mask3.repeat([batch_size,1,1,1])
-        
+        attention_mask3 = attention_mask3.to(self.base_model.device)
         # ######5.build positionid
         # import pdb;pdb.set_trace();
         position_ids = torch.arange(0, seq_length-1 , dtype=torch.long)
@@ -343,22 +343,39 @@ class ChimeraModel(nn.Module):
         # import pdb;pdb.set_trace()
         # #####6.build  the new input  
         embed2 = torch.cat((outputs[0],embed1[:,1:]),dim=-2)
+        
         for i in self.fast_layer1:
             embed2 = i(embed2 ,attention_mask = attention_mask3,position_ids= position_ids2)
             embed2 =embed2[0]
         #######7.intercept seq_len-1 ,due to the tiny defect of trigram,there is no trigram of  0，1 token in fact，so the 0,1 output is not valid
         output2 = embed2[:,-seq_length+1:]
-        # import pdb;pdb.set_trace();
+    
+       
+        
         loss_fct =torch.nn.MSELoss(size_average=None, reduce=None, reduction='mean') 
         ######8.teacher and student trick
-        hsloss =loss_fct( outputs[0][:,1:].clone(),output2[:,:-1])  
+        hsloss =loss_fct( outputs[0][:,1:].clone(),output2[:,:-1]) 
+         ####9.get next head embed
+        output22 = torch.cat((outputs[0],output2),dim=-1)
+        chimera_logits.append(self.chimera_head[0]((output22)))
+        newinput = torch.argmax(chimera_logits[-1],dim=-1)
+        # import pdb;pdb.set_trace()
+        newembed =gettrigram(self,newinput)
+        # import pdb;pdb.set_trace();
+        # embed =self.base_model.model.embed_tokens(labels2)
+        # embedtrigram = torch.cat((embed[:,:-2],embed[:,1:-1],embed[:,2:]),dim=-1)
+        # gram0 = torch.cat((embed[:,0],embed[:,0],embed[:,0]),dim=-1).unsqueeze(1)
+        # gram1 = torch.cat((embed[:,0],embed[:,1],embed[:,1]),dim=-1).unsqueeze(1)
+        # embedtrigram = torch.cat((gram0,gram1,embedtrigram),dim=-2)
+        # embed1 = self.trimlp(embedtrigram )
+        
         ####algorithm2 2.1.预测t2的准确率
         """实现上来说，i+1 layerN用fastlayerN代替，然后获取i+2 fastlayerN ,预测i+3的layerN
             在训练上，只能说再次拼接i+2 fastlayerN,长度为3seq_length-3,由于涉及到投机过程，取top5之类的，训练非常麻烦，所以暂时不实现
         """
         # ##### 8.预测t3 seq-1 + seq-1 + seq-1 ，因为embed不够了
-        
-        embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
+        #import pdb;pdb.set_trace()
+        #embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
         attention_mask3 = torch.cat((attention_mask[0,0],attention_mask2,attention_mask[0,0]),dim=-1)
         attention_mask3 = torch.cat((attention_mask3,attention_mask3,attention_mask3),dim=-2).unsqueeze(0).unsqueeze(0)
         attention_mask3 = attention_mask3.repeat([batch_size,1,1,1])        
@@ -366,7 +383,8 @@ class ChimeraModel(nn.Module):
         position_ids2 = torch.arange(1, seq_length , dtype=torch.long)
         position_ids3 = torch.arange(2, seq_length+1 , dtype=torch.long)
         position_ids3 = torch.cat((position_ids,position_ids2,position_ids3),dim=-1).unsqueeze(0)   
-        embed3 = torch.cat((outputs[0][:,:],output2,embed1[:,2:]),dim=-2).clone().detach() 
+        embed3 = torch.cat((outputs[0][:,:],output2,newembed[:,:]),dim=-2).clone().detach() 
+        # import pdb;pdb.set_trace()
         for i in self.fast_layer1:
             embed3 = i(embed3 ,attention_mask = attention_mask3,position_ids= position_ids3)
             embed3 =embed3[0]
@@ -374,49 +392,93 @@ class ChimeraModel(nn.Module):
         output3 = embed3[:,-seq_length+1:]
         # import pdb;pdb.set_trace()
         ###i+4
-        embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
+        # embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
+        output33 = torch.cat((outputs[0],output3),dim=-1)
+        chimera_logits.append(self.chimera_head[1]((output33)))
+        newinput = torch.argmax(chimera_logits[-1],dim=-1)
+        # import pdb;pdb.set_trace()
+        newembed =gettrigram(self,newinput)
+
         attention_mask3 = torch.cat((attention_mask[0,0],attention_mask2,attention_mask2,attention_mask[0,0]),dim=-1)
         attention_mask3 = torch.cat((attention_mask3,attention_mask3,attention_mask3,attention_mask3),dim=-2).unsqueeze(0).unsqueeze(0)
         attention_mask3 = attention_mask3.repeat([batch_size,1,1,1])        
         position_ids4 = torch.arange(3, seq_length+2 , dtype=torch.long)
         position_ids4 = torch.cat((position_ids3[0],position_ids4),dim=-1).unsqueeze(0)   
-        embed3 = torch.cat((outputs[0][:,:],output2,output3,embed1[:,3:]),dim=-2).clone().detach() 
+        embed3 = torch.cat((outputs[0][:,:],output2,output3,newembed[:,:]),dim=-2).clone().detach() 
         for i in self.fast_layer1:
             embed3 = i(embed3 ,attention_mask = attention_mask3,position_ids= position_ids4)
             embed3 =embed3[0]
         # #######7.intercept seq_len-1 ,due to the tiny defect of trigram,there is no trigram of  0，1 token in fact，so the 0,1 output is not valid
         output4 = embed3[:,-seq_length+1:]
         ### i+5
-        embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
+        output44 = torch.cat((outputs[0],output4),dim=-1)
+        chimera_logits.append(self.chimera_head[2]((output44)))
+        newinput = torch.argmax(chimera_logits[-1],dim=-1)
+        # import pdb;pdb.set_trace()
+        newembed =gettrigram(self,newinput)
+        # embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
         attention_mask3 = torch.cat((attention_mask[0,0],attention_mask2,attention_mask2,attention_mask2,attention_mask[0,0]),dim=-1)
         attention_mask3 = torch.cat((attention_mask3,attention_mask3,attention_mask3,attention_mask3,attention_mask3),dim=-2).unsqueeze(0).unsqueeze(0)
         attention_mask3 = attention_mask3.repeat([batch_size,1,1,1])        
         position_ids5 = torch.arange(4, seq_length+3 , dtype=torch.long)
         position_ids5 = torch.cat((position_ids4[0],position_ids5),dim=-1).unsqueeze(0)   
-        embed3 = torch.cat((outputs[0][:,:],output2,output3,output4,embed1[:,4:]),dim=-2).clone().detach() 
+        embed3 = torch.cat((outputs[0][:,:],output2,output3,output4,newembed[:,:]),dim=-2).clone().detach() 
         for i in self.fast_layer1:
             embed3 = i(embed3 ,attention_mask = attention_mask3,position_ids= position_ids5)
             embed3 =embed3[0]
         # #######7.intercept seq_len-1 ,due to the tiny defect of trigram,there is no trigram of  0，1 token in fact，so the 0,1 output is not valid
         output5 = embed3[:,-seq_length+1:]
-        
+        ##i+5
+        if self.chimera_heads > 4:
+            output55 = torch.cat((outputs[0],output5),dim=-1)
+            chimera_logits.append(self.chimera_head[3]((output55)))
+            newinput = torch.argmax(chimera_logits[-1],dim=-1)
+            newembed =gettrigram(self,newinput)
+            # embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
+            attention_mask3 = torch.cat((attention_mask[0,0],attention_mask2,attention_mask2,attention_mask2,attention_mask2,attention_mask[0,0]),dim=-1)
+            attention_mask3 = torch.cat((attention_mask3,attention_mask3,attention_mask3,attention_mask3,attention_mask3,attention_mask3),dim=-2).unsqueeze(0).unsqueeze(0)
+            attention_mask3 = attention_mask3.repeat([batch_size,1,1,1])        
+            position_ids6 = torch.arange(5, seq_length+4, dtype=torch.long)
+            position_ids6 = torch.cat((position_ids5[0],position_ids6),dim=-1).unsqueeze(0)   
+            embed3 = torch.cat((outputs[0][:,:],output2,output3,output4,output5,newembed[:,:]),dim=-2).clone().detach() 
+            for i in self.fast_layer1:
+                embed3 = i(embed3 ,attention_mask = attention_mask3,position_ids= position_ids6)
+                embed3 =embed3[0]
+            # #######7.intercept seq_len-1 ,due to the tiny defect of trigram,there is no trigram of  0，1 token in fact，so the 0,1 output is not valid
+            output6 = embed3[:,-seq_length+1:]
+            output66 = torch.cat((outputs[0], output6),dim=-1)
+        # ### i+6
+        # embed1 = torch.cat((embed1,embed1[:,-1].unsqueeze(1)),dim=-2)
+        # attention_mask3 = torch.cat((attention_mask[0,0],attention_mask2,attention_mask2,attention_mask2,attention_mask[0,0]),dim=-1)
+        # attention_mask3 = torch.cat((attention_mask3,attention_mask3,attention_mask3,attention_mask3,attention_mask3),dim=-2).unsqueeze(0).unsqueeze(0)
+        # attention_mask3 = attention_mask3.repeat([batch_size,1,1,1])        
+        # position_ids5 = torch.arange(4, seq_length+3 , dtype=torch.long)
+        # position_ids5 = torch.cat((position_ids4[0],position_ids5),dim=-1).unsqueeze(0)   
+        # embed3 = torch.cat((outputs[0][:,:],output2,output3,output4,embed1[:,4:]),dim=-2).clone().detach() 
+        # for i in self.fast_layer1:
+        #     embed3 = i(embed3 ,attention_mask = attention_mask3,position_ids= position_ids5)
+        #     embed3 =embed3[0]
+        # # #######7.intercept seq_len-1 ,due to the tiny defect of trigram,there is no trigram of  0，1 token in fact，so the 0,1 output is not valid
+        # output5 = embed3[:,-seq_length+1:]
         
         
         ####2.2 获得预测label，
         #predict_layerN2 = torch.cat((output2[:,:-1],output2[:,1:]),dim=-1)#######预测第二个token,长度为seq-2 
-        output22 = torch.cat((outputs[0],output2),dim=-1).detach().requires_grad_()
-        output33 = torch.cat((outputs[0],output3),dim=-1).detach().requires_grad_()
-        output44 = torch.cat((outputs[0],output4),dim=-1).detach().requires_grad_()
-        output55 = torch.cat((outputs[0],output5),dim=-1).detach().requires_grad_()
         
-        chimera_logits = []
+
+       
+
+        
+        
+        
         for i in range(self.chimera_heads): 
-           if i== 0 :chimera_logits.append(self.chimera_head[i]((output22)))
-           elif i==1 :chimera_logits.append(self.chimera_head[i]((output33)))
-           elif i==2 :chimera_logits.append(self.chimera_head[i]((output44)))
-           elif i==3 :chimera_logits.append(self.chimera_head[i]((output55)))
+           # if i== 0 :chimera_logits.append(self.chimera_head[i]((output22)))
+           # elif i==1 :chimera_logits.append(self.chimera_head[i]((output33)))
+           # elif i==2 :chimera_logits.append(self.chimera_head[i]((output44)))
+           # elif i==3 :chimera_logits.append(self.chimera_head[i]((output55)))
+           if i==4 :chimera_logits.append(self.chimera_head[i]((output66)))
                
-           hsloss +=loss_fct( orig[:,3+i:].clone(),chimera_logits[i][:,2:-1-i])
+           #hsloss +=loss_fct( orig[:,3+i:].clone(),chimera_logits[i][:,2:-1-i])
         chimera_logits.append(orig[:,:])
         if output_orig:
             return torch.stack(chimera_logits, dim=0), outputs, orig

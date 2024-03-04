@@ -43,6 +43,7 @@ import torch.nn.functional as F
 IGNORE_TOKEN_ID = LabelSmoother.ignore_index
 
 
+
 # Customized for training Chimera heads
 class CustomizedTrainer(Trainer):
     def prediction_step(
@@ -211,7 +212,7 @@ class CustomizedTrainer(Trainer):
             chimera_labels = chimera_labels.view(-1)        
             chimera_labels = chimera_labels.to(chimera_logits.device)      
             loss_i = loss_fct(chimera_logits, chimera_labels)
-            #loss += loss_i
+            loss += loss_i
             not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
             chimera_labels = chimera_labels[not_ignore]
             #import pdb;pdb.set_trace()
@@ -229,7 +230,7 @@ class CustomizedTrainer(Trainer):
             chimera_labels = chimera_labels.view(-1)
             chimera_labels = chimera_labels.to(chimera_logits.device)
             loss_i = loss_fct(chimera_logits, chimera_labels)
-            loss += loss_i
+            #loss += loss_i
             not_ignore = chimera_labels.ne(IGNORE_TOKEN_ID)
             chimera_labels = chimera_labels[not_ignore]
             # import pdb;pdb.set_trace()
@@ -245,7 +246,7 @@ class CustomizedTrainer(Trainer):
         
        
         self.log(log)
-        return (loss+logits1["hsloss"], logits1["logits"]) if return_outputs else loss+logits1["hsloss"]
+        return (loss, logits1["logits"]) if return_outputs else loss
    
 
 @dataclass
@@ -344,7 +345,7 @@ def preprocess(
     assert conv.sep_style == SeparatorStyle.ADD_COLON_TWO
 
     # Mask targets. Only compute loss on the assistant outputs.
-    sep = conv.sep + conv.roles[1] + ": "
+    sep = conv.sep + conv.roles[1] + ":"
     for conversation, target in zip(conversations, targets):
         total_len = int(target.ne(tokenizer.pad_token_id).sum())
 
@@ -571,8 +572,8 @@ def train():
     )
     
     #######load pretrained model####
-    chimera_lm_head = chimera_lm_head.load_chimera("chimera_1f_posthalf_finetune_chimera_mlp_vicuna-7b-v1.3_chimera_2_lr_2e-05_layers_1")
-    # chimera_lm_head.load_state_dict(dict)
+    chimera_lm_head = chimera_lm_head.load_chimera("/U_PZL2023ZZ0005/jhyu/model_save/chimera_13b_chimera_mlp_vicuna-13b-hf_chimera_5_lr_0.0001_layers_1")
+
     # del dict
     torch.cuda.empty_cache()#清除无用变量
     ########
@@ -623,7 +624,7 @@ def train():
         lm_head = chimera_lm_head.chimera_head
 
     if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
-        trainer.train(resume_from_checkpoint=True)
+        trainer.train(resume_from_checkpoint=False)
     else:
         trainer.train()
     model.config.use_cache = True

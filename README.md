@@ -1,6 +1,8 @@
-# Chimera fastlayer-llm-interference
+# Chimera llm-interference speedup
 
 this respository is aimed at speeding up  llm interference.
+
+![speedup demo](/data/demo.gif)
 
 ## environment
 python 3.10
@@ -16,12 +18,12 @@ huggingface_hub     0.16.4
 fschat 0.2.28
 
 ## datasets
-Sharedgpt
+[Sharedgpt](https://huggingface.co/datasets/Aeala/ShareGPT_Vicuna_unfiltered)
 
 
 
 ## model
-vicuna7b/13b
+supprt vicuna , llama-2  and mistral
 ```
 git lfs install
 git clone https://huggingface.co/lmsys/vicuna-13b-v1.5
@@ -95,20 +97,24 @@ torchrun --nproc_per_node=1  ./chimera/train.py --model_name_or_path ../model/vi
 ```
 
 ## evaluate
---1.3 new code--
-medusa/train/interference.ipynb is an easy evaluation for the fastlayer model.
-
-input can be  any prompts , output is the accuracy of next_next token.
-
-for example, 
-
-input is "how are you? assitant:"
-
-model will give 2 token,"I am"
-
-we can calculate the prediction accuracy of the next_next token such as "am" in this example
+```
+cd ./chimera
+python test.py model_path
+```
 
 
 
-## theory
-our method is aimed at speeding up the interference of llm by means of fastlayer,which is a special structure to help the model get the n-gram. As we all know the most of llm is based on the atuoregressive model, we have to admit a fact that this kind  of structure caused the low efficiency of some special tasks ,such as Generative tasks.  Speculative decoding is a good idea by making good use of the paralism of llm.However , there is a still difficult problem how we can get the n-gram with the minist cost.In the fastlayer model,we use the trigram and extended transformer to assit the big llm to predict more token with the least cost.Meanwhile,we provide a new method to evaluate the speculative token which can meet the demand of greedy search and beam search. 
+
+
+## Reference
+For technical details and full experimental results, please check the [paper](https://arxiv.org/abs/2402.15758)
+```
+@misc{zeng2024chimera,
+      title={Chimera: A Lossless Decoding Method for Accelerating Large Language Models Inference by Fusing all Tokens}, 
+      author={Ziqian Zeng and Jiahong Yu and Qianshi Pang and Zihao Wang and Huiping Zhuang and Cen Chen},
+      year={2024},
+      eprint={2402.15758},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
