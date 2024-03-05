@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 # Chimera llm-interference speedup
 =======
 # Chimera 
->>>>>>> b145864a371ad189434bf40e743095b14710ddb1
+
 
 this respository is aimed at speeding up  llm interference.
 
@@ -80,7 +80,7 @@ torchrun --nproc_per_node=1   ./train.py --model_name_or_path ../model/vicuna-7b
 
 
 ## evaluate
-<<<<<<< HEAD
+
 ```
 cd ./chimera
 python test.py model_path
