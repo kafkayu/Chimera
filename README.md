@@ -1,10 +1,10 @@
 
-# Chimera llm-interference speedup
-=======
+
+this respository is aimed at speeding up  llm interference.
 # Chimera 
 
 
-this respository is aimed at speeding up  llm interference.
+
 
 ![speedup demo](/data/demo.gif)
 
@@ -91,7 +91,7 @@ python test.py model_path
 
 
 ## Reference
-For technical details and full experimental results, please check the [paper](https://arxiv.org/abs/2402.15758)
+For technical details and full experimental results, please read this [paper](https://arxiv.org/abs/2402.15758)
 ```
 @misc{zeng2024chimera,
       title={Chimera: A Lossless Decoding Method for Accelerating Large Language Models Inference by Fusing all Tokens}, 
