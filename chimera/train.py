@@ -158,10 +158,10 @@ class CustomizedTrainer(Trainer):
     def save_model(self, output_dir=None, _internal_call=False):
         # import pdb;pdb.set_trace()
         # output_dir = self.args.output_dir
-        # 创建输出目录
+
         os.makedirs(output_dir, exist_ok=True)
  
-        # 保存训练参数
+
         torch.save(
         self.model.trimlp.state_dict(),
         os.path.join(output_dir, "trimlp.pt"),
@@ -556,11 +556,11 @@ def train():
     #Freeze the base model
 
 
-    ###########加载transformer############
+
     import copy
     #fast_Layer = copy.deepcopy(model.model.layers[-1])
     
-    #############********加载旧模型头*******###########
+
     
     
     # Add Chimera heads
@@ -575,7 +575,7 @@ def train():
     chimera_lm_head = chimera_lm_head.load_chimera("/U_PZL2023ZZ0005/jhyu/model_save/chimera_13b_chimera_mlp_vicuna-13b-hf_chimera_5_lr_0.0001_layers_1")
 
     # del dict
-    torch.cuda.empty_cache()#清除无用变量
+    torch.cuda.empty_cache()
     ########
     for param in chimera_lm_head.base_model.parameters():
         param.require_grad = False
@@ -607,7 +607,7 @@ def train():
     )
 
 
-    #######加载checkpoint#####
+
     
     
     # Save Chimera config
