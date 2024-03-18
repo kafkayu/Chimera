@@ -36,7 +36,7 @@ with open(filename, 'r') as f:
     train = json.load(f)
 tokenizer = chimera_model.get_tokenizer()
 for i in range(len(train['question'])):
-    print("第{}个问题".format(i))
+    print("{}question".format(i))
     if i == 2:
         break
     Q = train['question'][i]['value']
