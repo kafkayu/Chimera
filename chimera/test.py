@@ -1,9 +1,9 @@
 import sys
 print(sys.argv[1])
-path = sys.argv[1]#'/home/liyunhao/nlptest/chimera_V7B_chimera_mlp_vicuna-7b-v1.3_chimera_5_lr_4e-05_layers_1'
+path = sys.argv[1]
 name = path.split('/')[-1]
 #import pdb;pdb.set_trace()
-filename =  "/U_PZL2023ZZ0005/jhyu/dataset/ShareGPT_Vicuna_unfiltered/testouptut{}.json".format(name)
+filename =  ""
 print(filename)
 # import pdb;pdb.set_trace()
 
