@@ -90,18 +90,6 @@ python test.py model_path
 
 
 
-## Reference
-For technical details and full experimental results, please read this [paper](https://arxiv.org/abs/2402.15758)
-```
-@misc{zeng2024chimera,
-      title={Chimera: A Lossless Decoding Method for Accelerating Large Language Models Inference by Fusing all Tokens}, 
-      author={Ziqian Zeng and Jiahong Yu and Qianshi Pang and Zihao Wang and Huiping Zhuang and Cen Chen},
-      year={2024},
-      eprint={2402.15758},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
-```
 
 
 
