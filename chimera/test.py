@@ -1,9 +1,16 @@
 import sys
 print(sys.argv[1])
+<<<<<<< HEAD
 path = sys.argv[1]#
 name = path.split('/')[-1]
 #import pdb;pdb.set_trace()
 filename =  "testouptut{}.json".format(name)
+=======
+path = sys.argv[1]
+name = path.split('/')[-1]
+#import pdb;pdb.set_trace()
+filename =  ""
+>>>>>>> fa0a01236fdadf41f327b08427e8eedcfd403349
 print(filename)
 # import pdb;pdb.set_trace()
 

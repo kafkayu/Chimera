@@ -1,11 +1,18 @@
 
+<<<<<<< HEAD
 # Chimera llm-interference speedup
 =======
 # Chimera 
 
 We have plans to undertake a comprehensive reoptimization of our model in the immediate future. We aim to expeditiously upload an enhanced model along with the corresponding modified code.
+=======
+>>>>>>> fa0a01236fdadf41f327b08427e8eedcfd403349
 
 this respository is aimed at speeding up  llm interference.
+# Chimera 
+
+
+
 
 ![speedup demo](/data/demo.gif)
 

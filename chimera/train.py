@@ -160,7 +160,14 @@ class CustomizedTrainer(Trainer):
     def save_model(self, output_dir=None, _internal_call=False):
         # import pdb;pdb.set_trace()
         # output_dir = self.args.output_dir
+<<<<<<< HEAD
         os.makedirs(output_dir, exist_ok=True)
+=======
+
+        os.makedirs(output_dir, exist_ok=True)
+ 
+
+>>>>>>> fa0a01236fdadf41f327b08427e8eedcfd403349
         torch.save(
         self.model.trimlp.state_dict(),
         os.path.join(output_dir, "trimlp.pt"),
@@ -543,6 +550,12 @@ def train():
 
 
     import copy
+<<<<<<< HEAD
+=======
+    #fast_Layer = copy.deepcopy(model.model.layers[-1])
+    
+
+>>>>>>> fa0a01236fdadf41f327b08427e8eedcfd403349
     
     
     # Add Chimera heads
@@ -556,6 +569,12 @@ def train():
     #######load pretrained model####
     #chimera_lm_head = chimera_lm_head.load_chimera("model_path")
 
+<<<<<<< HEAD
+=======
+    # del dict
+    torch.cuda.empty_cache()
+    ########
+>>>>>>> fa0a01236fdadf41f327b08427e8eedcfd403349
     for param in chimera_lm_head.base_model.parameters():
         param.require_grad = False
 
@@ -579,6 +598,12 @@ def train():
         chimera_num_layers=training_args.chimera_num_layers,
         base_model_name_or_path=model_args.model_name_or_path,
     )
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> fa0a01236fdadf41f327b08427e8eedcfd403349
     
     
     # Save Chimera config
