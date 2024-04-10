@@ -3,6 +3,7 @@
 =======
 # Chimera 
 
+We have plans to undertake a comprehensive reoptimization of our model in the immediate future. We aim to expeditiously upload an enhanced model along with the corresponding modified code.
 
 this respository is aimed at speeding up  llm interference.
 
@@ -86,22 +87,13 @@ cd ./chimera
 python test.py model_path
 ```
 
+## Acknowledge 
+Our project is based on a lot of excellent work such as [Medusa](https://github.com/FasterDecoding/Medusa)  ,[vicuna](https://vicuna.lmsys.org/)
 
 
 
 
-## Reference
-For technical details and full experimental results, please check the [paper](https://arxiv.org/abs/2402.15758)
-```
-@misc{zeng2024chimera,
-      title={Chimera: A Lossless Decoding Method for Accelerating Large Language Models Inference by Fusing all Tokens}, 
-      author={Ziqian Zeng and Jiahong Yu and Qianshi Pang and Zihao Wang and Huiping Zhuang and Cen Chen},
-      year={2024},
-      eprint={2402.15758},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
-```
+
 
 
 

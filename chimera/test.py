@@ -1,14 +1,13 @@
 import sys
 print(sys.argv[1])
-path = sys.argv[1]#'/home/liyunhao/nlptest/chimera_V7B_chimera_mlp_vicuna-7b-v1.3_chimera_5_lr_4e-05_layers_1'
+path = sys.argv[1]#
 name = path.split('/')[-1]
 #import pdb;pdb.set_trace()
-filename =  "/U_PZL2023ZZ0005/jhyu/dataset/ShareGPT_Vicuna_unfiltered/testouptut{}.json".format(name)
+filename =  "testouptut{}.json".format(name)
 print(filename)
 # import pdb;pdb.set_trace()
 
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "1" # define GPU id, remove if you want to use all GPUs available
 import torch
 from tqdm import tqdm
 import time
@@ -86,13 +85,7 @@ def from_pretrained(
             filename = hf_hub_download(chimera_name_or_path, "fast_layer1.pt")
         chimera_state_dict = torch.load(filename, map_location=base_model.device)
         
-        # config = copy.deepcopy(self.base_model.config)
-        # config.num_hidden_layers = 1
 
-        # self.fast_layer1 = torch.nn.Sequential(
-        #                                 LlamaDecoderLayer(config)
-                                       
-        #                                 )
         self.fast_layer1.load_state_dict(chimera_state_dict, strict=False)
     
         #4.chimera_head
@@ -296,11 +289,11 @@ def baseline_forward(prompt,chimera_model, tokenizer, chimera_choices, temperatu
     return input_ids, new_token, idx, total_time        
 
 import json
-with open( "/U_PZL2023ZZ0005/jhyu/dataset/ShareGPT_Vicuna_unfiltered/small_trainQuestion0123.json", "r") as json_file:
+with open( "question.json", "r") as json_file:
    Qs =  json.load( json_file)
 
 
-# for  i in range(len(Qs)):
+
 conv = get_conversation_template("vicuna")
 count = 0
 averageratio = []
@@ -309,21 +302,19 @@ for i in range(len(Qs)):
     if count % 2 == 0:
         with open( filename, "w") as json_file:
             json.dump(Qs,json_file)
-        print("已经保存{}个question".format(count))
+        print("{}question".format(count))
     conv.messages = []
     print("average ratio",sum(averageratio)/len(averageratio))    
     for j in range(len(Qs[i]['conversations'])):
         
         if Qs[i]['conversations'][j]['from']=='human':
-            print("ok")
-            #import pdb;pdb.set_trace()
+
             conv.append_message(conv.roles[0], Qs[i]['conversations'][j]['value'])
             prompt = conv.get_prompt() +conv.roles[1] +': '
             torch.cuda.synchronize()
             
             with torch.inference_mode():
                 input_ids = tokenizer([prompt]).input_ids
-                ###prewarm####
                 output_ids, new_token, idx, wall_time,total_time = chimera_forward(
                                 prompt,
                                 chimera_model,
@@ -332,10 +323,10 @@ for i in range(len(Qs)):
                                 temperature,
                                 posterior_threshold,
                                 posterior_alpha,
-                                max_steps = 100,
+                                max_steps = 500,
                      token_dict=token_dict
                             )
-                ########
+
                 
                 torch.cuda.synchronize()
                 start_time = time.time()
@@ -347,19 +338,14 @@ for i in range(len(Qs)):
                                 temperature,
                                 posterior_threshold,
                                 posterior_alpha,
-                                max_steps = 100,
+                                max_steps = 500,
                      token_dict=token_dict
                             )
                 torch.cuda.synchronize()
                 ori1 = time.time() - start_time
                 
                 output_ids = output_ids[0][len(input_ids[0]) :]
-                ## calculate_time
-                # time_chimera = np.sum(wall_time['chimera'] )
-                # time_tree = np.sum(wall_time['tree'] )
-                # time_posterior = np.sum(wall_time['posterior'] )
-                # time_update = np.sum(wall_time['update'] )
-                # time_total = time_chimera + time_tree + time_posterior + time_update
+
                 speed =  new_token /total_time
                 Qs[i]['conversations'][j+1]["Output length"] =  output_ids.size(-1)
                 Qs[i]['conversations'][j+1]["Compression ratio"]= float(new_token / (idx+1))
@@ -385,15 +371,11 @@ for i in range(len(Qs)):
                 Qs[i]['conversations'][j+1]["orispeed"]= float(new_token/total_time)
                 print(Qs[i]['conversations'][j+1]["orispeed"])
                 averageratio.append(Qs[i]['conversations'][j+1]["Speed1"]/Qs[i]['conversations'][j+1]["orispeed"])
-                # torch.cuda.empty_cache()
-            #                 input = tokenizer([inputs])
-            # output = model.generate(inputs = torch.tensor(input['input_ids'] ).to("cuda"),max_new_tokens =1024,early_stopping =True)
-            #print(output)
+
                 Qs[i]['conversations'][j+1]['value'] = tokenizer.decode(
                     output_ids,
-                    # spaces_between_special_tokens=False,
-                )#tokenizer.decode(output[0][len(input['input_ids'][0]):],skip_special_tokens =True)
-            ##将上一轮回答继续加入conv
+                    
+                )
                 conv.append_message(conv.roles[1], Qs[i]['conversations'][j+1]['value'])
 
             

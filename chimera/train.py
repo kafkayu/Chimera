@@ -14,10 +14,12 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
-# Adapted from: https://github.com/lm-sys/FastChat/blob/main/fastchat/train/train.py
+# Adapted from: https://github.com/lm-sys/FastChat/blob/main/fastchat/train/train.py and https://github.com/FasterDecoding/Medusa
+# 
+
 
 # import os
-# os.environ['CUDA_VISIBLE_DEVICES'] = '1,3'
+
 from dataclasses import dataclass, field
 import json
 import math
@@ -158,29 +160,14 @@ class CustomizedTrainer(Trainer):
     def save_model(self, output_dir=None, _internal_call=False):
         # import pdb;pdb.set_trace()
         # output_dir = self.args.output_dir
-        # 创建输出目录
         os.makedirs(output_dir, exist_ok=True)
- 
-        # 保存训练参数
         torch.save(
         self.model.trimlp.state_dict(),
         os.path.join(output_dir, "trimlp.pt"),
       )
-      #   torch.save(
-      #   self.model.trimlp2.state_dict(),
-      #   os.path.join(output_dir, "trimlp2.pt"),
-      # )
-      #   torch.save(
-      #   self.model.bimlp.state_dict(),
-      #   os.path.join(output_dir, "bimlp.pt"),
-      # )
-        # torch.save(self.model.fast_layer2.state_dict(), os.path.join(output_dir, "fast_layer2.pt"))
+
         torch.save(self.model.fast_layer1.state_dict(), os.path.join(output_dir, "fast_layer1.pt"))
-        # torch.save(self.model.fast_layer0.state_dict(),os.path.join(output_dir, "fast_layer0.pt"))
-        # # 保存有梯度变化的模型参数
-        # saved_params = {
-        #     k: v.to("cpu") for k, v in self.model.named_parameters() if v.requires_grad
-        # }
+
         torch.save(self.model.chimera_head.state_dict(), os.path.join(output_dir, "chimera_head.pt"))
         
     def compute_loss(self, model, inputs, return_outputs=False):
@@ -518,10 +505,9 @@ def train():
     parser = transformers.HfArgumentParser(
         (ModelArguments, DataArguments, TrainingArguments)
     )
-    # print(ModelArguments)
-    # print(ModelArguments)
+
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
-    local_rank =0 #training_args.local_rank
+    local_rank =0 
     
     # Set RoPE scaling factor
     config = transformers.AutoConfig.from_pretrained(
@@ -553,14 +539,10 @@ def train():
         load_in_8bit=model_args.load_in_8bit,
     )
 
-    #Freeze the base model
 
 
-    ###########加载transformer############
+
     import copy
-    #fast_Layer = copy.deepcopy(model.model.layers[-1])
-    
-    #############********加载旧模型头*******###########
     
     
     # Add Chimera heads
@@ -572,19 +554,11 @@ def train():
     )
     
     #######load pretrained model####
-    chimera_lm_head = chimera_lm_head.load_chimera("/U_PZL2023ZZ0005/jhyu/model_save/chimera_13b_chimera_mlp_vicuna-13b-hf_chimera_5_lr_0.0001_layers_1")
+    #chimera_lm_head = chimera_lm_head.load_chimera("model_path")
 
-    # del dict
-    torch.cuda.empty_cache()#清除无用变量
-    ########
     for param in chimera_lm_head.base_model.parameters():
         param.require_grad = False
-    # for  param in chimera_lm_head.trimlp.parameters():
-    #     param.require_grad = False
-    # for  param in chimera_lm_head.fast_layer0.parameters():
-    #     param.require_grad = False
-    # for  param in chimera_lm_head.fast_layer1.parameters():
-    #     param.require_grad = False
+
     training_args.output_dir = f"{training_args.output_dir}_chimera_mlp_{model_args.model_name_or_path.split('/')[-1]}_chimera_{training_args.chimera_num_heads}_lr_{training_args.learning_rate}_layers_{training_args.chimera_num_layers}"
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(
@@ -605,9 +579,6 @@ def train():
         chimera_num_layers=training_args.chimera_num_layers,
         base_model_name_or_path=model_args.model_name_or_path,
     )
-
-
-    #######加载checkpoint#####
     
     
     # Save Chimera config
@@ -628,8 +599,6 @@ def train():
     else:
         trainer.train()
     model.config.use_cache = True
-    # trainer.save_state()
-    # safe_save_model_for_hf_trainer(trainer=trainer, output_dir=training_args.output_dir)
     # Save ChimeraHead seperately
     if hasattr(chimera_lm_head, "module"):
         lm_head = chimera_lm_head.module.chimera_head
@@ -646,32 +615,10 @@ def train():
         os.path.join(training_args.output_dir, "trimlp.pt"),
     )
 
-    # torch.save(
-    #     chimera_lm_head.trimlp2.state_dict(),
-    #     os.path.join(training_args.output_dir, "triml2.pt"),
-    # )
-    # torch.save(
-    #     chimera_lm_head.bimlp.state_dict(),
-    #     os.path.join(training_args.output_dir, "bimlp.pt"),
-    # )
-    # torch.save(
-    #     chimera_lm_head.bimlp.state_dict(),
-    #     os.path.join(training_args.output_dir, "bimlp.pt"),
-    # )
-    # torch.save(
-    #     chimera_lm_head.fast_layer0.state_dict(),
-    #     os.path.join(training_args.output_dir, "fast_layer0.pt"),
-    # )
     torch.save(
         chimera_lm_head.fast_layer1.state_dict(),
         os.path.join(training_args.output_dir, "fast_layer1.pt"),
     )
-
-    #)
-    # torch.save(
-    #         chimera_lm_head.fast_layer0.state_dict(),
-    #         os.path.join(training_args.output_dir, "fast_layer0.pt"),
-    #     )
 
 
 
