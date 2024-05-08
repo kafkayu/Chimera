@@ -6,7 +6,7 @@
 
 
 
-this respository is aimed at speeding up  llm interference.
+this respository is aimed at speeding up  llm inference.
 # Chimera 
 
 
